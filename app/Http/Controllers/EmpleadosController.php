@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleados;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
@@ -49,7 +50,7 @@ class EmpleadosController extends Controller
         }
 
         Empleados::insert($datosEmpleados );
-        return response()->json($datosEmpleados);
+        return redirect('empleados')-> with('Mensaje','Empleado agregado con exito');
     }
 
     /**
@@ -69,9 +70,11 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleados $empleados)
+    public function edit($id)
     {
-        //
+        $empleado=Empleados::findOrFail($id);
+
+        return view('empleados.edit',compact('empleado'));
     }
 
     /**
@@ -81,9 +84,26 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleados $empleados)
+    public function update(Request $request, $id)
     {
-        //
+        $datosEmpleado=request()->except(['_token','_method']);
+       
+        if ($request->hasFile('Foto')) {
+         
+            $empleado= Empleados::findOrFail($id);
+
+            Storage::delete('public/'.$empleado->Foto);
+
+            $datosEmpleado['Foto']=$request->file('Foto')->store('uploads','public');
+
+        }
+
+        Empleados::where('id','=',$id)->update($datosEmpleado);
+
+        //$empleado= Empleados::findOrFail($id);
+        //return view('empleados.edit',compact('empleado'));
+
+        return redirect('empleados')->with('Mensaje','Empleado modificado con exito');
     }
 
     /**
@@ -93,8 +113,12 @@ class EmpleadosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        Empleados::destroy($id);
-        return redirect('empleados');
+    { 
+        $empleado= Empleados::findOrFail($id);
+
+        if (Storage::delete('public/'.$empleado->Foto)) {
+          Empleados::destroy($id);
+        } 
+        return redirect('empleados')->with('Mensaje','Empleado eliminado con exito');
     }
 }

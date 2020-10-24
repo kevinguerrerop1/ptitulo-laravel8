@@ -1,3 +1,9 @@
+@if(Session::has('Mensaje')){{
+    Session::get('Mensaje')
+}}
+@endif
+
+<a href="{{url('empleados/create')}}">Agregar Empleados</a>
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
@@ -14,7 +20,9 @@
         @foreach($empleados as $empleado)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$empleado->Foto}}</td>
+           <td>
+                <img src="{{ asset('storage').'/'. $empleado->Foto}}" alt="" width="100">    
+            </td>
             <td>{{$empleado->Nombre}}</td>
             <td>{{$empleado->ApellidoPaterno}}</td>
             <td>{{$empleado->ApellidoMaterno}}</td>
