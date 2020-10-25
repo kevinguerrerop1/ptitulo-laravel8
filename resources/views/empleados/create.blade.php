@@ -5,7 +5,7 @@
 <div class="container">
 
 
-<form action="{{url('/empleados')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/empleados')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
 {{ csrf_field() }}
 
 @include('empleados.form',['Modo'=>'crear'])
