@@ -1,7 +1,10 @@
 
 <div class="form-group">
 <label for="Nombre" class="control-label">{{'Nombre'}}</label>
-<input type="text" name="Nombre" id="Nombre" class="form-control" value="{{isset($empleado->Nombre)?$empleado->Nombre:''}}">
+<input type="text" name="Nombre" id="Nombre" class="form-control {{$errors->has('Nombre')?'is-invalid':'' }} " value="{{isset($empleado->Nombre)?$empleado->Nombre:old('Nombre')}}">
+
+{!! $errors->first('Nombre',' <div class="invalid-feedback">:message</div>') !!}
+
 </div>
 
 <div class="form-group">

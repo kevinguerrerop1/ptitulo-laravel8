@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticulosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadosController;
@@ -23,7 +24,14 @@ Route::get('/', function () {
 
 
 //Ruta para tomar todos los metodos
-Route::resource('empleados', EmpleadosController::class);;
+Route::resource('empleados', EmpleadosController::class);
+
+
+
+Route::resource('articulos', ArticulosController::class);
+
+
+
 
 Auth::routes(['reset' => false, 'register' => false]);
 

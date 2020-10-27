@@ -40,6 +40,17 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+
+         $campos=[
+            'Nombre'=>'required|string|max:100',
+            'ApellidoPaterno'=>'required|string|max:100',
+            'ApellidoMaterno'=>'required|string|max:100',
+            'Correo'=>'required|email',
+            'Foto'=>'required|max:10000|mimes:jpeg,png,jpg'
+        ];
+        $Mensaje=["required"=>'El :attribute es requerido'];
+        $this->validate($request,$campos,$Mensaje);
+
         $datosEmpleados=request()->all();
         $datosEmpleados=request()->except('_token');
 
@@ -86,6 +97,7 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
         $datosEmpleado=request()->except(['_token','_method']);
        
         if ($request->hasFile('Foto')) {
