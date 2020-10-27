@@ -21,16 +21,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
+//->middleware('auth')
+//instruccion para log ante cualquier cosa
 
 //Ruta para tomar todos los metodos
-Route::resource('empleados', EmpleadosController::class);
-
-
-
-Route::resource('articulos', ArticulosController::class);
-
-
+Route::resource('empleados', EmpleadosController::class)->middleware('auth');
+Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
 
 Auth::routes(['reset' => false, 'register' => false]);

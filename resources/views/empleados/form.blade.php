@@ -1,25 +1,34 @@
 
 <div class="form-group">
 <label for="Nombre" class="control-label">{{'Nombre'}}</label>
-<input type="text" name="Nombre" id="Nombre" class="form-control {{$errors->has('Nombre')?'is-invalid':'' }} " value="{{isset($empleado->Nombre)?$empleado->Nombre:old('Nombre')}}">
-
+<input type="text" name="Nombre" id="Nombre" 
+class="form-control {{$errors->has('Nombre')?'is-invalid':''}}" 
+value="{{isset($empleado->Nombre)?$empleado->Nombre:old('Nombre')}}">
 {!! $errors->first('Nombre',' <div class="invalid-feedback">:message</div>') !!}
-
 </div>
 
 <div class="form-group">
 <label for="ApellidoPaterno" class="control-label">{{'ApellidoPaterno'}}</label>
-<input type="text" name="ApellidoPaterno" id="ApellidoPaterno" class="form-control" value="{{isset($empleado->ApellidoPaterno)?$empleado->ApellidoPaterno:''}}">
+<input type="text" name="ApellidoPaterno" id="ApellidoPaterno" 
+class="form-control {{$errors->has('ApellidoPaterno')?'is-invalid':''}}" 
+value="{{isset($empleado->ApellidoPaterno)?$empleado->ApellidoPaterno:old('ApellidoPaterno')}}">
+{!! $errors->first('Apellido Paterno',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 
 <div class="form-group">
-<label for="ApellidoMaterno" class="control-label">{{'ApellidoMaterno'}}</label>
-<input type="text" name="ApellidoMaterno" id="ApellidoMaterno" class="form-control" value="{{isset($empleado->ApellidoMaterno)?$empleado->ApellidoMaterno:''}}">
+<label for="ApellidoMaterno" class="control-label">{{'ApellidoMaterno'}}</label> 
+<input type="text" name="ApellidoMaterno" id="ApellidoMaterno" 
+class="form-control {{$errors->has('ApellidoMaterno')?'is-invalid':''}}" 
+value="{{isset($empleado->ApellidoMaterno)?$empleado->ApellidoMaterno:old('ApellidoMaterno')}}">
+{!! $errors->first('Apellido Materno',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 
 <div class="form-group">
 <label for="Correo" class="control-label">{{'Correo'}}</label>
-<input type="email" name="Correo" id="Correo" class="form-control" value="{{isset($empleado->Correo)?$empleado->Correo:''}}">
+<input type="email" name="Correo" id="Correo" 
+class="form-control {{$errors->has('Correo')?'is-invalid':''}}" 
+value="{{isset($empleado->Correo)?$empleado->Correo:old('Correo')}}">
+{!! $errors->first('Correo',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 
 <div class="form-group">
@@ -29,7 +38,8 @@
 <img class="img img-thumbnail img-fluid" src="{{ asset('storage').'/'. $empleado->Foto}}" alt="" width="150">
 <br/>
 @endif
-<input type="file" name="Foto" id="Foto" class="form-control" value="">
+<input type="file" name="Foto" id="Foto" class="form-control {{$errors->has('Foto')?'is-invalid':''}}" value="">
+{!! $errors->first('Foto',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 <br/>
 <input type="submit" class="btn btn-success" value="{{ $Modo== 'crear' ? 'Agregar':'Modificar'}}">
