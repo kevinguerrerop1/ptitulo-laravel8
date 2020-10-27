@@ -4,9 +4,11 @@
 
 <div class="container">
 
-@if(Session::has('Mensaje')){{
-    Session::get('Mensaje')
-}}
+<!--FORMATO ALETAR-->
+@if(Session::has('Mensaje'))
+<div class="alert alert-success" role="alert">
+   {{Session::get('Mensaje')}}
+</div>
 @endif
 
 <a href="{{url('empleados/create')}}" class="btn btn-success">Agregar Empleados</a>

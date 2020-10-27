@@ -15,10 +15,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
+
         $datos['empleados']=Empleados::paginate(5);
-
-
-
         return view('empleados.index',$datos);
     }
 
