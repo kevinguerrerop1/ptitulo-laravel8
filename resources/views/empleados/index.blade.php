@@ -48,6 +48,9 @@
     </tbody>
 </table>
 
+<!-- INTRUCCION PARA PAGINAR-->
+{{ $empleados->links() }}
+
 </div>
 
 @endsection
