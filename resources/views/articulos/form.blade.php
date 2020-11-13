@@ -24,6 +24,11 @@
 </div>
 
 <div class="form-group">
+<label for="Descripcion" class="control-label">{{'Fecha'}}</label>
+<input type="in" name="Fecha" id="Descripcion" class="form-control" value="{{$mytime = Carbon\Carbon::now()}}" >
+</div>
+
+<div class="form-group">
 <label for="Foto" class="control-label">{{'Foto'}}</label>
 @if(isset($articulo->Foto))
 <br/>

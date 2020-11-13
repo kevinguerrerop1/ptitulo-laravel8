@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\ArticulosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\ArticulosController;
+use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\TipoServiciosController;
 
 
 /*
@@ -28,8 +30,12 @@ Route::get('/', function () {
 Route::resource('empleados', EmpleadosController::class)->middleware('auth');
 Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
+//Rutas Servicios
+Route::resource('servicios', ServiciosController::class)->middleware('auth');
+Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
 
-Auth::routes(['reset' => false, 'register' => false]);
+
+Auth::routes([ 'register' => false]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
