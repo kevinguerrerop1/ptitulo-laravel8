@@ -25,7 +25,7 @@
        @foreach($servicios as $servicio)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$servicio->tiposervicios->nts}}</td>
+            <td>{{$servicio->tiposervicios->NombreTipoServicio}}</td>
         </tr>
         @endforeach
     </tbody>

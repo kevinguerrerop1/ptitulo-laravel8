@@ -12,6 +12,6 @@ class Servicios extends Model
     public $timestamps= false;
 
     public function TipoServicios(){
-        return $this -> belongsTo(tiposervicios::class ,'idtserv','idtserv');
+        return $this -> belongsTo(tiposervicios::class ,'idtserv','id');
     }
 }
