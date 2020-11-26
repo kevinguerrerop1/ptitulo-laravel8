@@ -14,7 +14,8 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        //
+        $datos['vehiculos']=Vehiculos::paginate(2);
+        return view('vehiculos.index',$datos);
     }
 
     /**
@@ -24,7 +25,7 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehiculos.create');
     }
 
     /**
@@ -57,7 +58,7 @@ class VehiculosController extends Controller
      */
     public function edit(Vehiculos $vehiculos)
     {
-        //
+        return view('vehiculos.edit');
     }
 
     /**

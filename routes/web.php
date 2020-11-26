@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\ArticulosController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TipoServiciosController;
-
+use App\Http\Controllers\VehiculosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::resource('articulos', ArticulosController::class)->middleware('auth');
 //Rutas Servicios
 Route::resource('servicios', ServiciosController::class)->middleware('auth');
 Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
+Route::resource('clientes', ClientesController::class);
+Route::resource('vehiculos', VehiculosController::class);
 
 
 Auth::routes([ 'register' => false]);
