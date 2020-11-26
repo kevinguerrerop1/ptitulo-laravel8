@@ -14,7 +14,7 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        $datos['vehiculos']=Vehiculos::paginate(2);
+        $datos['vehiculos']=Vehiculos::simplepaginate(2);
         return view('vehiculos.index',$datos);
     }
 
@@ -36,7 +36,24 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos=[
+            'Patente'=>'required|string|max:6',
+            'Anio'=>'required|string|max:4',
+            'Marca'=>'required|string|max:100',
+            'Modelo'=>'required|string|max:100',
+            'Cilindrada'=>'required|string|max:4',
+            'Color'=>'required|string|max:100'
+        ];
+
+        $Mensaje=["required"=>'El campo es requerido'];
+        $this -> validate($request,$campos,$Mensaje);
+
+        $datosVehiculo=request()->all();
+        $datosVehiculo=request()->except('_token');
+
+        Vehiculos::insert($datosVehiculo);
+        return redirect('vehiculos')->with('Mensaje','Vehiculo agregado con exito');
+
     }
 
     /**

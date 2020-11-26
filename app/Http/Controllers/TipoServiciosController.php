@@ -70,7 +70,7 @@ class TipoServiciosController extends Controller
      */
     public function edit($id)
     {
-         $tiposervicio=TipoServicios::findOrFail($id);
+        $tiposervicio=TipoServicios::findOrFail($id);
         return view('tiposervicios.edit',compact('tiposervicio'));
     }
 
