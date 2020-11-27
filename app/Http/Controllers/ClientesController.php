@@ -14,7 +14,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('clientes.index');
+        $datos['clientes']=Clientes::paginate(5);
+        return view('clientes.index',$datos);
     }
 
     /**
@@ -35,7 +36,22 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'ApellidoPaterno'=>'required|string|max:100',
+            'ApellidoMaterno'=>'required|string|max:100',
+            'Rut'=>'required|string|max:100',
+            'Correo'=>'required|email'
+        ];
+        $Mensaje=["required"=>'El :attribute es requerido'];
+        $this->validate($request,$campos,$Mensaje);
+
+        $datosClientes=request()->all();
+        $datosClientes=request()->except('_token');
+
+        
+        Clientes::insert($datosClientes );
+        return redirect('clientes')-> with('Mensaje','Cliente agregado con exito');
     }
 
     /**
@@ -55,9 +71,10 @@ class ClientesController extends Controller
      * @param  \App\Models\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clientes $clientes)
+    public function edit( $id)
     {
-        return view('clientes.edit');
+        $cliente=Clientes::findOrFail($id);
+        return view('clientes.edit',compact('cliente'));
     }
 
     /**
@@ -67,9 +84,27 @@ class ClientesController extends Controller
      * @param  \App\Models\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clientes $clientes)
+    public function update(Request $request,  $id)
     {
-        //
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'ApellidoPaterno'=>'required|string|max:100',
+            'ApellidoMaterno'=>'required|string|max:100',
+            'Rut'=>'required|string|max:100',
+            'Correo'=>'required|email'
+        ];
+        
+
+        $Mensaje=["required"=>'El :attribute es requerido'];
+        $this->validate($request,$campos,$Mensaje);
+
+        $datosCliente=request()->except(['_token','_method']);
+        Clientes::where('id','=',$id)->update($datosCliente);
+
+        //$empleado= Empleados::findOrFail($id);
+        //return view('empleados.edit',compact('empleado'));
+
+        return redirect('clientes')->with('Mensaje','Cliente modificado con exito');
     }
 
     /**

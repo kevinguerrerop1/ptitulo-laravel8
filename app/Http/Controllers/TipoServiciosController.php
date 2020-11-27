@@ -104,7 +104,7 @@ class TipoServiciosController extends Controller
      */
     public function destroy($idtserv)
     {
-        $datostservicios=TipoServicios::findOrFail($idtserv);
+        //$datostservicios=TipoServicios::findOrFail($idtserv);
         TipoServicios::destroy($idtserv);
         return redirect('tiposervicios')->with('Mensaje','Tipo de servicios eliminado con exito');
     }

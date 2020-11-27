@@ -8,7 +8,7 @@ value="{{isset($empleado->Nombre)?$empleado->Nombre:old('Nombre')}}">
 </div>
 
 <div class="form-group">
-<label for="ApellidoPaterno" class="control-label">{{'ApellidoPaterno'}}</label>
+<label for="ApellidoPaterno" class="control-label">{{'Apellido Paterno'}}</label>
 <input type="text" name="ApellidoPaterno" id="ApellidoPaterno" 
 class="form-control {{$errors->has('ApellidoPaterno')?'is-invalid':''}}" 
 value="{{isset($empleado->ApellidoPaterno)?$empleado->ApellidoPaterno:old('ApellidoPaterno')}}">

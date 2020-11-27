@@ -3,7 +3,7 @@
 <label for="Patente" class="control-label">{{'Patente'}}</label>
 <input type="text" name="Patente" id="Patente" 
 class="form-control {{$errors->has('Patente')?'is-invalid':''}}" 
-value="{{isset($veichulo->Patente)?$vehiculo->Patente:old('Patente')}}">
+value="{{isset($vehiculo->Patente)?$vehiculo->Patente:old('Patente')}}">
 {!! $errors->first('Patente',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 
@@ -11,7 +11,7 @@ value="{{isset($veichulo->Patente)?$vehiculo->Patente:old('Patente')}}">
 <label for="Anio" class="control-label">{{'Año'}}</label>
 <input type="number" name="Anio" id="Anio" 
 class="form-control {{$errors->has('Anio')?'is-invalid':''}}" 
-value="{{isset($veichulo->Anio)?$vehiculo->Anio:old('Anio')}}">
+value="{{isset($vehiculo->Anio)?$vehiculo->Anio:old('Anio')}}">
 {!! $errors->first('Anio',' <div class="invalid-feedback">:message</div>') !!}
 </div> 
 
@@ -19,7 +19,7 @@ value="{{isset($veichulo->Anio)?$vehiculo->Anio:old('Anio')}}">
 <label for="Marca" class="control-label">{{'Marca'}}</label>
 <input type="text" name="Marca" id="Marca" 
 class="form-control {{$errors->has('Marca')?'is-invalid':''}}" 
-value="{{isset($veichulo->Marca)?$vehiculo->Marca:old('Marca')}}">
+value="{{isset($vehiculo->Marca)?$vehiculo->Marca:old('Marca')}}">
 {!! $errors->first('Marca',' <div class="invalid-feedback">:message</div>') !!}
 </div> 
 
@@ -27,7 +27,7 @@ value="{{isset($veichulo->Marca)?$vehiculo->Marca:old('Marca')}}">
 <label for="Modelo" class="control-label">{{'Modelo'}}</label>
 <input type="text" name="Modelo" id="Modelo" 
 class="form-control {{$errors->has('Modelo')?'is-invalid':''}}" 
-value="{{isset($veichulo->Marca)?$vehiculo->Modelo:old('Modelo')}}">
+value="{{isset($vehiculo->Modelo)?$vehiculo->Modelo:old('Modelo')}}">
 {!! $errors->first('Modelo',' <div class="invalid-feedback">:message</div>') !!}
 </div> 
 
@@ -35,7 +35,7 @@ value="{{isset($veichulo->Marca)?$vehiculo->Modelo:old('Modelo')}}">
 <label for="Cilindrada" class="control-label">{{'Cilindrada'}}</label>
 <input type="number" name="Cilindrada" id="Cilindrada" 
 class="form-control {{$errors->has('Cilindrada')?'is-invalid':''}}" 
-value="{{isset($veichulo->Cilindrada)?$vehiculo->Cilindrada:old('Cilindrada')}}">
+value="{{isset($vehiculo->Cilindrada)?$vehiculo->Cilindrada:old('Cilindrada')}}">
 {!! $errors->first('Cilindrada',' <div class="invalid-feedback">:message</div>') !!}
 </div> 
 
@@ -43,7 +43,7 @@ value="{{isset($veichulo->Cilindrada)?$vehiculo->Cilindrada:old('Cilindrada')}}"
 <label for="Color" class="control-label">{{'Color'}}</label>
 <input type="text" name="Color" id="Color" 
 class="form-control {{$errors->has('Color')?'is-invalid':''}}" 
-value="{{isset($veichulo->Color)?$vehiculo->Color:old('Color')}}">
+value="{{isset($vehiculo->Color)?$vehiculo->Color:old('Color')}}">
 {!! $errors->first('Color',' <div class="invalid-feedback">:message</div>') !!}
 </div> 
 <br>

@@ -14,7 +14,7 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        $datos['vehiculos']=Vehiculos::simplepaginate(2);
+        $datos['vehiculos']=Vehiculos::simplepaginate(10);
         return view('vehiculos.index',$datos);
     }
 
@@ -73,9 +73,10 @@ class VehiculosController extends Controller
      * @param  \App\Models\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehiculos $vehiculos)
+    public function edit($id)
     {
-        return view('vehiculos.edit');
+       $vehiculo=Vehiculos::findOrFail($id);
+        return view('vehiculos.edit',compact('vehiculo'));
     }
 
     /**
@@ -85,9 +86,24 @@ class VehiculosController extends Controller
      * @param  \App\Models\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehiculos $vehiculos)
+    public function update(Request $request,$id)
     {
-        //
+        $campos=[
+            'Patente'=>'required|string|max:6',
+            'Anio'=>'required|string|max:4',
+            'Marca'=>'required|string|max:100',
+            'Modelo'=>'required|string|max:100',
+            'Cilindrada'=>'required|string|max:4',
+            'Color'=>'required|string|max:100'
+        ];
+
+        $Mensaje=["required"=>'El campo es requerido'];
+        $this -> validate($request,$campos,$Mensaje);
+        $datosvehiculos=request()->except(['_token','_method']);
+
+        Vehiculos::where('id','=',$id)->update($datosvehiculos);
+        return redirect('vehiculos')->with('Mensaje','Vehiculo modificado con exito');
+        
     }
 
     /**
@@ -96,8 +112,9 @@ class VehiculosController extends Controller
      * @param  \App\Models\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehiculos $vehiculos)
+    public function destroy($id)
     {
-        //
+        Vehiculos::destroy($id);
+        return redirect('vehiculos')->with('Mensaje','Vehiculo eliminado con exito');
     }
 }

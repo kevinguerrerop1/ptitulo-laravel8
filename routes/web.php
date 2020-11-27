@@ -33,7 +33,7 @@ Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
 //Rutas Servicios
 Route::resource('servicios', ServiciosController::class)->middleware('auth');
-Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
+Route::resource('tiposervicios', TipoServiciosController::class);
 Route::resource('clientes', ClientesController::class);
 Route::resource('vehiculos', VehiculosController::class);
 
