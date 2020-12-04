@@ -14,8 +14,15 @@ class CreateServiciosTable extends Migration
     public function up()
     {
         Schema::create('servicios', function (Blueprint $table) {
-           $table->id('idserv');
-           $table->integer('idtserv');
+           $table->id();
+           $table->unsignedBigInteger('idtiposervicio');
+           $table->unsignedBigInteger('idvehiculo');
+           $table->unsignedBigInteger('idempleado');
+           $table->string('descripcion');
+
+           //$table->foreign('idvehiculo')->references('id')->on('vehiculos');
+            
+
            $table->timestamps();
         });
     }

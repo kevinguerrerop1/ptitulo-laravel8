@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clientes;
+use App\Models\Vehiculos;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -116,5 +117,11 @@ class ClientesController extends Controller
     public function destroy(Clientes $clientes)
     {
         //
+    }
+
+    public function asigacionvehiculo(Clientes $clientes, Vehiculos $vehiculos){
+
+        
+
     }
 }

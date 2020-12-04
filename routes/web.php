@@ -25,20 +25,20 @@ Route::get('/', function () {
 });
 
 //->middleware('auth')
-//instruccion para log ante cualquier cosa
+//instruccion para logear ante cualquier cosa
 
 //Ruta para tomar todos los metodos
-Route::resource('empleados', EmpleadosController::class)->middleware('auth');
-Route::resource('articulos', ArticulosController::class)->middleware('auth');
+Route::resource('empleados', EmpleadosController::class);
+Route::resource('articulos', ArticulosController::class);
 
 //Rutas Servicios
-Route::resource('servicios', ServiciosController::class)->middleware('auth');
+Route::resource('servicios', ServiciosController::class);
 Route::resource('tiposervicios', TipoServiciosController::class);
 Route::resource('clientes', ClientesController::class);
 Route::resource('vehiculos', VehiculosController::class);
 
 
-Auth::routes([ 'register' => false]);
+Auth::routes([ 'register' => true]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

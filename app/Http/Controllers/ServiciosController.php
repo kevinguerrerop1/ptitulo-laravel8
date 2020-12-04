@@ -25,7 +25,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        //
+        return view('servicios.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class ServiciosController extends Controller
      */
     public function edit(Servicios $servicios)
     {
-        //
+        return view('servicios.edit');
     }
 
     /**

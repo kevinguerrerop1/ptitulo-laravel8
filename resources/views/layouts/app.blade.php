@@ -43,6 +43,9 @@
                         <li>
                             <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
                         </li>
+                         <li>
+                            <a class="nav-link" href="{{ route('servicios.index') }}">{{ __('Servicios') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

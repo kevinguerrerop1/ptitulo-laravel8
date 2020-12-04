@@ -45,7 +45,7 @@
                 
             {{csrf_field() }}
             {{ method_field('DELETE')}}
-            <button type="submit" onclick="return confirm('Borrar?')" class="btn btn-danger">Borrar</button>
+            <button type="submit" onclick="return confirm('Borrar?')" class="btn btn-danger" disabled>Borrar</button>
             </td>
         </tr>
         @endforeach
