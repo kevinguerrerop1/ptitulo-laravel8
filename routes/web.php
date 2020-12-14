@@ -20,10 +20,9 @@ use App\Http\Controllers\VehiculosController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
+Route::get('/', function () {return view('auth.login');});
+Route::get('/contacto', function () {return view('contacto');});
+Route::get('/about', function () {return view('about');});
 //->middleware('auth')
 //instruccion para logear ante cualquier cosa
 
