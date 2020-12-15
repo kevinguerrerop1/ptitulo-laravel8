@@ -8,6 +8,8 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TipoServiciosController;
 use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AdministradoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +43,6 @@ Auth::routes([ 'register' => true]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('admin',AdministradoresController::class);
+Route::resource('post',PostsController::class)->middleware('auth');

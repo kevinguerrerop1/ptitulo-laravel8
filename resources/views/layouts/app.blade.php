@@ -33,7 +33,7 @@
 
   <!-- Login sin NavBar -->
     @if (!\Request::is('login','register'))
-    @include('.subviews.navbar')      
+      @include('.subviews.navbar')      
     @endif
   
 
