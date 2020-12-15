@@ -22,7 +22,8 @@ use App\Http\Controllers\AdministradoresController;
 |
 */
 
-Route::get('/', function () {return view('auth.login');});
+//Route::get('/', function () {return view('auth.login');});
+Route::get('/',function(){return view('welcome');});
 Route::get('/contacto', function () {return view('contacto');});
 Route::get('/about', function () {return view('about');});
 //->middleware('auth')
