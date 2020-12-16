@@ -105,6 +105,16 @@
           <span>Post</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href={{'empleados'}}>
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Empleados</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href={{'clientes  '}}>
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Clientes</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href={{'users'}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Usuarios</span></a>
