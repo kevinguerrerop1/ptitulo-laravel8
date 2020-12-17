@@ -70,7 +70,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+          <p class="copyright text-muted">Copyright &copy; Check-Ar 20200</p>
         </div>
       </div>
     </div>

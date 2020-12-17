@@ -23,7 +23,7 @@ use App\Http\Controllers\AdministradoresController;
 */
 
 //Route::get('/', function () {return view('auth.login');});
-Route::get('/',function(){return view('welcome');});
+//Route::get('/',function(){return view('welcome');});
 Route::get('/contacto', function () {return view('contacto');});
 Route::get('/about', function () {return view('about');});
 //->middleware('auth')
@@ -43,7 +43,7 @@ Route::resource('vehiculos', VehiculosController::class);
 Auth::routes([ 'register' => true]);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('admin',AdministradoresController::class);
 Route::resource('post',PostsController::class)->middleware('auth');
