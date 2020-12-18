@@ -77,26 +77,5 @@
 </div>
 @endsection
 
-<!-- delete Modal-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Are you shure you want to delete this?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-        </div>
-        <div class="modal-body">Select "delete" If you realy want to delete this post.</div>
-        <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <form method="POST" action="/posts/">
-            @method('DELETE')
-            @csrf
-            <input type="hidden" id="post_id" name="post_id" value="">
-            <a class="btn btn-primary" onclick="$(this).closest('form').submit();">Delete</a>
-        </form>
-        </div>
-    </div>
-    </div>
+
 </div>

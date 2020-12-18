@@ -20,12 +20,13 @@
 
   <!-- Main Content -->
   <div class="container">
+          <div class="col-lg-8 col-md-10 mx-auto">
     <div class="row">
         @foreach ($posts as $post) 
       <div class="col-md-4">
-       <img src="{{ asset('storage').'/'. $post->imagen}}" alt="" class="img img-thumbnail img-fluid" width="auto">
+       <img src="{{ asset('storage').'/'. $post->imagen}}" alt="" class="img img-thumbnail img-fluid mt-5" width="auto">
       </div>
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-8">
         <div class="post-preview">
           <a href="post.html">
             <h2 class="post-title">
@@ -44,6 +45,7 @@
       </div>
         @endforeach
     </div>
+          </div>
   </div>
   <hr>
   @endsection
