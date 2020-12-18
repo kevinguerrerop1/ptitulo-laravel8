@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -16,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
         $datos['users']=User::get();
-        return view('admin.users.index',$datos);;
+        return view('admin.users.index',$datos);
     }
 
     /**
@@ -87,7 +86,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-         //Validacion de campos
+        //Validacion de campos
         $request -> validate([
             'name' => 'required|max:191',
             'email' => 'required|email|max:191',

@@ -10,6 +10,7 @@ use App\Http\Controllers\TipoServiciosController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AdministradoresController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::resource('admin',AdministradoresController::class);
 Route::resource('post',PostsController::class)->middleware('auth');
+
+//Ruta Users
+Route::resource('users', UsersController::class);
