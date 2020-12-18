@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $datos['users']=User::get();
+        return view('admin.users.index',$datos);;
     }
 
     /**
@@ -24,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -35,7 +37,23 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validacion de campos
+        $request -> validate([
+            'name' => 'required|max:191',
+            'email' => 'required|unique:users|email|max:191',
+            'password'=>'required|between:8,191|confirmed',
+            'password_confirmation'=>'required'
+        ]);
+
+
+        $user = new User();
+
+        $user->name= $request->name;
+        $user->email= $request->email;
+        $user->password= Hash::make($request->password);
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**
@@ -46,7 +64,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.users.show',['user'=>$user]);
     }
 
     /**
@@ -57,7 +75,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit',['user'=>$user]);
     }
 
     /**
@@ -69,7 +87,21 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+         //Validacion de campos
+        $request -> validate([
+            'name' => 'required|max:191',
+            'email' => 'required|email|max:191',
+            'password'=>'between:8,191|confirmed'
+        ]);
+
+        $user->name=$request->name;
+        $user->email=$request->email;
+        if ($request->password !=null) {
+            $user->password =Hash::make($request->password);
+        }
+
+        $user->save();
+        return redirect('/users');
     }
 
     /**
