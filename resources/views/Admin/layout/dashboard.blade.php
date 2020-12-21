@@ -72,7 +72,21 @@
           <span>Dashboard</span>
         </a>
       </li>
-      
+      @can('isAdmin')
+      <li class="nav-item">
+        <a class="nav-link" href={{'roles'}}>
+          <i class="fas fa-unlock-alt"></i>
+          <span>Roles</span></a>
+        </li>
+      @endcan
+
+      @canany(['isAdmin','isManager','isCliente'])
+      <li class="nav-item">
+        <a class="nav-link" href={{'users'}}>
+          <i class="fas fa-fw fa-table"></i>
+          <span>Usuarios</span></a>
+      </li>
+      @endcanany
       <li class="nav-item">
         <a class="nav-link" href={{'post'}}>
           <i class="fas fa-fw fa-chart-area"></i>
@@ -87,11 +101,6 @@
         <a class="nav-link" href={{'clientes  '}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Clientes</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href={{'users'}}>
-          <i class="fas fa-fw fa-table"></i>
-          <span>Usuarios</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href={{'vehiculos'}}>

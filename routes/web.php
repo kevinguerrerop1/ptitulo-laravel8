@@ -11,6 +11,7 @@ use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AdministradoresController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
