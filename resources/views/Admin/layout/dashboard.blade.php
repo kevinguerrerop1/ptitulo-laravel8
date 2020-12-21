@@ -21,8 +21,8 @@
   <link href="http://localhost:82/laravel/ptitulo/public/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link rel="stylesheet" href="{{ asset('css/admin/sb-admin.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('/css/admin/sb-admin.css') }}">
+  @yield('css_role_page')
 </head>
 
 <body id="page-top">
@@ -52,6 +52,9 @@
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
+            @auth
+              {{ Auth::user()->name }} {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->name : "" }}
+            @endauth
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <div class="dropdown-divider"></div>
@@ -185,6 +188,8 @@
   <script src="http://localhost:82/laravel/ptitulo/public/js/admin/demo/datatables-demo.js"></script>
   <script src="http://localhost:82/laravel/ptitulo/public/js/admin/demo/chart-area-demo.js"></script>
 
+  @yield('js_role_page')
+  @yield('js_user_page')
 </body>
 
 </html>

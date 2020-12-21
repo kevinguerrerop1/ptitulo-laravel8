@@ -40,7 +40,7 @@
 </form>
 
     @section('css_role_page')
-        <link rel="stylesheet" href="{{'/css/admin/bootstrap-tagsinput.css'}}" >
+        <link rel="stylesheet" href="{{'http://localhost:82/laravel/ptitulo/public/css/admin/bootstrap-tagsinput.css'}}" >
     @endsection
 
     @section('js_role_page')

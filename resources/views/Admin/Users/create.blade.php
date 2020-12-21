@@ -90,7 +90,7 @@
                     permissions_ckeckbox_list.empty();
 
                     $.ajax({
-                        url: "http://localhost:82/laravel/ptitulo_copia/public/users/create",
+                        url: "http://localhost:82/laravel/ptitulo/public/users/create",
                         method: 'get',
                         dataType: 'json',
                         data: {
@@ -118,4 +118,4 @@
         </script>    
     @endsection
 
-@endsectionn
+@endsection
