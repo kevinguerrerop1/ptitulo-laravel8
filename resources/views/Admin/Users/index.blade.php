@@ -31,6 +31,7 @@
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Rut</th>
               <th>Email</th>
               <th>Rol</th>
               <th>Permisos</th>
@@ -41,6 +42,7 @@
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Rut</th>
               <th>Email</th>
               <th>Rol</th>
               <th>Permisos</th>
@@ -48,19 +50,32 @@
             </tr>
           </tfoot>
           <tbody>
-          @foreach($users as $user)
-            <tr>
-              <td>{{$loop->iteration}}</td>
-              <td>{{$user->name}}</td>
-              <td>{{$user->email}}</td>
-              <td>Roles</td>
-              <td>Herramientas</td>
-              <td>
-                <a href="{{url('/users/'.$user->id.'/')}}"><i class="fa fa-eye"></i></a>
-                <a href="{{url('/users/'.$user->id.'/edit')}}"><i class="fa fa-edit"></i></a>
-              </td>
-            </tr>
-          @endforeach
+            @foreach($users as $user)
+              <tr {{ Auth::user()->id == $user->id ? 'bgcolor=#ddd' : '' }}>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}} {{$user->ApellidoPaterno}}{{$user->ApellidoMaterno}}</td>
+                <td>{{$user->Rut}}</td>
+                <td>{{$user->email}}</td>
+                <td>
+                  @if ($user->roles->isNotEmpty())
+                    @foreach ($user->roles as $role)
+                        <span class="badge badge-primary">{{$role->name}}</span>
+                    @endforeach
+                  @endif
+                </td>
+                <td>
+                  @if ($user->permissions->isNotEmpty())
+                    @foreach ($user->permissions as $permission)
+                        <span class="badge badge-primary">{{$permission->name}}</span>
+                    @endforeach
+                  @endif
+                </td>
+                <td>
+                  <a href="{{url('/users/'.$user->id.'/')}}"><i class="fa fa-eye"></i></a>
+                  <a href="{{url('/users/'.$user->id.'/edit')}}"><i class="fa fa-edit"></i></a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -69,6 +84,9 @@
   </div>
 </div>
 
+@section('js_user_page')
+ <script src="{{ asset('/vendor/chart.js/Chart.min.jss')}}"> </script>
+ <script src="{{ asset('/js/admin/demo/chart-area-demo.jss')}}"> </script>
 @endsection
 
-</div>
+@endsection

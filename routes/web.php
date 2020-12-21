@@ -51,3 +51,6 @@ Route::resource('post',PostsController::class)->middleware('auth');
 
 //Ruta Users
 Route::resource('users', UsersController::class);
+
+//Ruta Roles
+Route::resource('roles',RolesController::class);
