@@ -85,8 +85,8 @@
 </div>
 
 @section('js_user_page')
- <script src="{{ asset('/vendor/chart.js/Chart.min.jss')}}"> </script>
- <script src="{{ asset('/js/admin/demo/chart-area-demo.jss')}}"> </script>
+ <script src="{{ asset('vendor/chart.js/Chart.min.js')}}"> </script>
+ <script src="{{ asset('js/admin/demo/chart-area-demo.js')}}"> </script>
 @endsection
 
 @endsection

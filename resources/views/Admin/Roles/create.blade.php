@@ -39,11 +39,11 @@
 </form>
 
     @section('css_role_page')
-        <link rel="stylesheet" href="{{'css/admin/bootstrap-tagsinput.css'}}" >
+        <link rel="stylesheet" href="{{asset('css/admin/bootstrap-tagsinput.css')}}" >
     @endsection
 
     @section('js_role_page')
-        <script src="{{ asset('/js/admin/bootstrap-tagsinput.js')}}"> </script>
+        <script src="{{ asset('js/admin/bootstrap-tagsinput.js')}}"> </script>
         <script>
             $(document).ready(function(){
                 $('#role_name').keyup(function(e){

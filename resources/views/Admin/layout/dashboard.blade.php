@@ -15,14 +15,17 @@
   <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 
   <!-- Custom fonts for this template-->
-  <link href="http://localhost:82/laravel/ptitulo/public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ asset('css/admin/bootstrap-tagsinput.css') }}" >
 
   <!-- Page level plugin CSS-->
-  <link href="http://localhost:82/laravel/ptitulo/public/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="{{asset('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link rel="stylesheet" href="{{ asset('/css/admin/sb-admin.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/sb-admin.css') }}">
+
   @yield('css_role_page')
+    
 </head>
 
 <body id="page-top">
@@ -52,9 +55,9 @@
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
-            @auth
-              {{ Auth::user()->name }} {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->name : "" }}
-            @endauth
+          @auth
+            {{ Auth::user()->name }} {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->name : "" }}
+          @endauth
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <div class="dropdown-divider"></div>
@@ -70,14 +73,14 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{{'home'}}">
+        <a class="nav-link" href="{{'/home'}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
       @can('isAdmin')
       <li class="nav-item">
-        <a class="nav-link" href={{'roles'}}>
+        <a class="nav-link" href={{asset('roles')}}>
           <i class="fas fa-unlock-alt"></i>
           <span>Roles</span></a>
         </li>
@@ -170,26 +173,26 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/jquery/jquery.min.js"></script>
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/chart.js/Chart.min.js"></script>
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/datatables/jquery.dataTables.js"></script>
-  <script src="http://localhost:82/laravel/ptitulo/public/vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="{{asset('vendor/datatables/jquery.dataTables.js')}}"></script>
+  <script src="{{asset('vendor/datatables/dataTables.bootstrap4.js')}}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="http://localhost:82/laravel/ptitulo/public/js/admin/sb-admin.js"></script>
+  <script src="{{asset('js/admin/sb-admin.js')}}"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="http://localhost:82/laravel/ptitulo/public/js/admin/demo/datatables-demo.js"></script>
-  <script src="http://localhost:82/laravel/ptitulo/public/js/admin/demo/chart-area-demo.js"></script>
+  <script src="{{asset('js/admin/demo/datatables-demo.js')}}"></script>
 
+  
   @yield('js_role_page')
   @yield('js_user_page')
+
 </body>
 
 </html>

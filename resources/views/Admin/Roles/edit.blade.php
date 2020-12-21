@@ -44,7 +44,7 @@
     @endsection
 
     @section('js_role_page')
-        <script src="{{ asset('/js/admin/bootstrap-tagsinput.js')}}"> </script>
+        <script src="{{ asset('js/admin/bootstrap-tagsinput.js')}}"> </script>
         <script>
             $(document).ready(function(){
                 $('#role_name').keyup(function(e){
