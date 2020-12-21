@@ -73,7 +73,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{{'/home'}}">
+        <a class="nav-link" href="{{asset('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -88,28 +88,28 @@
 
       @canany(['isAdmin','isManager','isCliente'])
       <li class="nav-item">
-        <a class="nav-link" href={{'users'}}>
+        <a class="nav-link" href={{asset('users')}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Usuarios</span></a>
       </li>
       @endcanany
       <li class="nav-item">
-        <a class="nav-link" href={{'post'}}>
+        <a class="nav-link" href={{asset('post')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Post</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href={{'empleados'}}>
+        <a class="nav-link" href={{asset('empleados')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Empleados</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href={{'clientes  '}}>
+        <a class="nav-link" href={{asset('clientes')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Clientes</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href={{'vehiculos'}}>
+        <a class="nav-link" href={{asset('vehiculos')}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Vehiculos</span></a>
       </li>

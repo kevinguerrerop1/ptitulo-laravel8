@@ -53,7 +53,7 @@
             @foreach($users as $user)
               <tr {{ Auth::user()->id == $user->id ? 'bgcolor=#ddd' : '' }}>
                 <td>{{$user->id}}</td>
-                <td>{{$user->name}} {{$user->ApellidoPaterno}}{{$user->ApellidoMaterno}}</td>
+                <td>{{$user->name}} {{$user->ApellidoPaterno}} {{$user->ApellidoMaterno}}</td>
                 <td>{{$user->Rut}}</td>
                 <td>{{$user->email}}</td>
                 <td>
