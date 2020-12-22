@@ -42,7 +42,7 @@ Route::resource('clientes', ClientesController::class);
 Route::resource('vehiculos', VehiculosController::class);
 
 
-Auth::routes([ 'register' => true]);
+Auth::routes([ 'register' => false]);
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
