@@ -23,31 +23,45 @@ use App\Http\Controllers\RolesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/', function () {return view('auth.login');});
-//Route::get('/',function(){return view('welcome');});
-Route::get('/contacto', function () {return view('contacto');});
-Route::get('/about', function () {return view('about');});
 //->middleware('auth')
 //instruccion para logear ante cualquier cosa
+//Route::get('/', function () {return view('auth.login');});
+//Route::get('/',function(){return view('welcome');});
 
-//Ruta para tomar todos los metodos
+//Rutas Autentificacion
+Auth::routes([ 'register' => false]);
+
+//Ruta Home
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Ruta Contacto
+Route::get('/contacto', function () {return view('contacto');});
+
+//Ruta Nosotros
+Route::get('/about', function () {return view('about');});
+
+//Ruta Empleados
 Route::resource('empleados', EmpleadosController::class);
+
+//Ruta Articulos
 Route::resource('articulos', ArticulosController::class);
 
 //Rutas Servicios
 Route::resource('servicios', ServiciosController::class);
+
+//Ruta Tipo Servicios
 Route::resource('tiposervicios', TipoServiciosController::class);
+
+//Ruta Clientes
 Route::resource('clientes', ClientesController::class);
+
+//Ruta Vehiculos
 Route::resource('vehiculos', VehiculosController::class);
 
-
-Auth::routes([ 'register' => false]);
-
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+//Ruta Admin
 Route::resource('admin',AdministradoresController::class);
+
+//Ruta Post
 Route::resource('post',PostsController::class)->middleware('auth');
 
 //Ruta Users
