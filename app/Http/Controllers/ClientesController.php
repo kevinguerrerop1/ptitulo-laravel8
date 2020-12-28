@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clientes;
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Vehiculos;
 use Illuminate\Http\Request;
@@ -37,9 +38,16 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('clientes.create');
+        if ($request->ajax()) {
+            $roles = Role::where('id',$request->role_id)->first();
+            $permissions = $roles->permissions;
+            return $permissions;
+        }
+
+        $roles = Role::all();
+        return view('admin.users.create',['roles' => $roles]);;
     }
 
     /**

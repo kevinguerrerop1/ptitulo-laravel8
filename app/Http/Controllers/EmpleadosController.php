@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleados;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -34,9 +35,16 @@ class EmpleadosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('users.create');
+        if ($request->ajax()) {
+            $roles = Role::where('id',$request->role_id)->first();
+            $permissions = $roles->permissions;
+            return $permissions;
+        }
+
+        $roles = Role::all();
+        return view('admin.users.create',['roles' => $roles]);
     }
 
     /**

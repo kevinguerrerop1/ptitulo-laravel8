@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Update Role</h1>
+<h1>Editar Rol</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -19,22 +19,23 @@
     @csrf()
     
     <div class="form-group">
-        <label for="role_name">Role name</label>
+        <label for="role_name">Nombre del Rol</label>
         <input type="text" name="role_name" class="form-control" id="role_name" placeholder="Nombre del Rol" value="{{ $role->name }}" required>
     </div>
     <div class="form-group">
-        <label for="role_slug">Role Slug</label>
-        <input type="text" name="role_slug" class="form-control" id="role_slug" placeholder="Slug Rol" value="{{ $role->slug }}">
+        <label for="role_slug">Slug del Rol</label>
+        <input type="text" name="role_slug" class="form-control" id="role_slug" placeholder="Slug Rol" value="{{ $role->slug }}" readonly>
     </div>
     <div class="form-group" >
-        <label for="roles_permissions">Add Permissions</label>
-        <input type="text" data-role="tagsinput" name="roles_permissions" class="form-control" id="roles_permissions" value="@foreach ($role->permissions as $permission)
+        <label for="roles_permissions">Agregar Permisos</label>
+        <input type="text" data-role="tagsinput" name="roles_permissions" class="form-control" id="roles_permissions" placeholder="Separa por 'COMA' " value="@foreach ($role->permissions as $permission)
             {{$permission->name. ","}}
         @endforeach">   
     </div> 
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary" value="Agregar">
+        <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 
 </form>

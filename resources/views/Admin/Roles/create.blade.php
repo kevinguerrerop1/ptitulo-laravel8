@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Create New User</h1>
+<h1>Crear Nuevo Rol</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -24,7 +24,7 @@
 
     <div class="form-group">
         <label for="role_slug">Slug</label>
-        <input type="text" name="role_slug" class="form-control" id="role_slug" placeholder="Slug" value="{{old('role_slug')}}" required>
+        <input type="text" name="role_slug" class="form-control" id="role_slug" placeholder="Slug" value="{{old('role_slug')}}" required readonly>
     </div>
 
     <div class="form-group">
@@ -33,7 +33,8 @@
     </div>
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary" value="Crear">
+        <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 
 </form>
