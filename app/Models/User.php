@@ -38,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relacion Mucho a Mucho
+    public function vehiculos(){
+        return $this->belongsToMany(Vehiculos::class, 'vehiculo_cliente');
+    }
 }

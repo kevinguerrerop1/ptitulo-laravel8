@@ -28,7 +28,7 @@
             </p>
         </div>
         <div class="card-footer">
-            <a href="{{url()->previous()}}" class="btn btn-primary">Go Back</a>
+            <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
         </div>
     </div>
 </div>

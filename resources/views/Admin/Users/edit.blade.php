@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Create New User</h1>
+<h1>Editar Usuario</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -19,8 +19,8 @@
 @csrf()
 
     <div class="form-group">
-        <label for="name">User name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="Name..." value="{{ $user->name }}" required>
+        <label for="name">Nombre de Usuario</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" value="{{ $user->name }}" required>
     </div>
 
     <div class="form-group">
@@ -44,13 +44,13 @@
     </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" id="password" placeholder="Password..." minlength="8">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" minlength="8">
     </div>
 
     <div class="form-group">
-        <label for="password_confirmation">Password Confirm</label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="Password..." id="password_confirmation">
+        <label for="password_confirmation">Confirmar Contraseñam</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña" id="password_confirmation">
     </div>
 
     <div class="form-group">
@@ -64,7 +64,7 @@
     </div>
 
    <div id="permissions_box" >
-        <label for="roles">Select Permissions</label>        
+        <label for="roles">Seleccione Permisos</label>        
         <div id="permissions_ckeckbox_list">                    
         </div>
     </div>   
@@ -86,7 +86,8 @@
     @endif
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary" value="Modificar">
+        <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 </form>
 @section('js_user_page')

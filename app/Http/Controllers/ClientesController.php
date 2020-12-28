@@ -82,9 +82,9 @@ class ClientesController extends Controller
      * @param  \App\Models\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function show(Clientes $clientes)
+    public function show(User $cliente)
     {
-        //
+        return view('clientes.show',['cliente'=>$cliente]);
     }
 
     /**

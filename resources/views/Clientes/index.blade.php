@@ -52,8 +52,11 @@
                 <td>{{$cliente->name}} {{$cliente->ApellidoPaterno}} {{$cliente->ApellidoMaterno}}</td>                
                 <td>{{$cliente->rut}}</td>
                 <td>{{$cliente->email}}</td>
+               
                 <td><a href="{{url('/clientes/'.$cliente->id.'/edit')}}"><i class="fa fa-edit"></i>
-              </a>
+                   </a>
+                   <a href="{{url('/clientes/'.$cliente->id.'/')}}"><i class="fa fa-eye"></i></a>
+                </td>
               </tr>
             @endforeach
           </tbody>

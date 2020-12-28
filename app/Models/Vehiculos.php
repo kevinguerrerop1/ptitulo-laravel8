@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehiculos extends Model
 {
-    use HasFactory;
+    public function usuario(){
+        return $this->belongsToMany(User::class, 'vehiculo_cliente');
+    }
 }

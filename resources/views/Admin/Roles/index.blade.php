@@ -5,10 +5,10 @@
 <!-- Titulo + Boton create -->
   <div class="row py-lg-2">
     <div class="col-md-6">
-      <h2>Listado de Rol</h2>
+      <h2>Lista de Roles</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('./roles/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Crear Nuevo Rol</a>
+      <a href="{{url('./roles/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Rol</a>
     </div>
   </div>
 
@@ -22,7 +22,7 @@
   <div class="card mb-3">
     <div class="card-header">
       <i class="fas fa-table"></i>
-          Listado de Rol
+          Lista de Roles
     </div>
     <div class="card-body">
       <div class="table-responsive">

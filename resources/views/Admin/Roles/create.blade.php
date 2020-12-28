@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Crear">
+        <input type="submit" class="btn btn-primary" value="Agregar">
         <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 

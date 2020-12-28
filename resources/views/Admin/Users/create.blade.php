@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Create New User</h1>
+<h1>Crear Nuevo Usuario</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -43,13 +43,13 @@
     </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="{{old('password')}}" required minlength="8">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" value="{{old('password')}}" required minlength="8">
     </div>
 
     <div class="form-group">
-        <label for="password_confirmation">Password Confirmation</label>
-        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password" value="{{old('password_confirmation')}}" required>
+        <label for="password_confirmation">Confirmar Contraseña</label>
+        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirmar Contraseña" value="{{old('password_confirmation')}}" required>
     </div>
 
     <div class="form-group">
@@ -69,7 +69,8 @@
     </div>   
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary" value="Agregar">
+        <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 
 </form>
