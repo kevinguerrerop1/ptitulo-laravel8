@@ -19,6 +19,8 @@ class UsersController extends Controller
     {
         $datos['users']=User::get();
         return view('admin.users.index',$datos);
+
+
     }
 
     /**
@@ -140,7 +142,7 @@ class UsersController extends Controller
             'email' => 'required|email|max:191',
             'password'=>'required|between:8,191|confirmed',
             'password_confirmation'=>'required'
-        ]);;
+        ]);
 
         $user->name=$request->name;
         $user->ApellidoPaterno=$request->ApellidoPaterno;

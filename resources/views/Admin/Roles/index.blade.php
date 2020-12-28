@@ -54,7 +54,7 @@
               <td>
                 @if ($role->permissions != null)
                     @foreach ($role->permissions as $permission)
-                        <span class="badge badge-primary">
+                        <span class="badge badge-info">
                             {{$permission->name}}
                         </span>
                     @endforeach

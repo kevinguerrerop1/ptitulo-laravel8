@@ -37,7 +37,7 @@
                 <th>Modelo</th>
                 <th>Cilindrada</th>
                 <th>Color</th>
-                <th>Acciones</th>
+                <th>Herramientas</th>
             </tr>
           </thead>
           <tfoot>
@@ -49,7 +49,7 @@
                 <th>Modelo</th>
                 <th>Cilindrada</th>
                 <th>Color</th>
-                <th>Acciones</th>
+                <th>Herramientas</th>
             </tr>
           </tfoot>
           <tbody>

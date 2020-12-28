@@ -2,16 +2,63 @@
 
 @section('content')
 
-<div class="container">
+<h1>Edit User</h1>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-<form action="{{url('/clientes/'.$cliente->id)}}" method="post" enctype="multipart/form-data">
+<form method="POST" action="{{url('clientes/'.$cliente->id)}}" enctype="multipart/form-data">
+@method('PATCH')
+@csrf()
 
-{{csrf_field()}}
-{{method_field('PATCH')}}
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" value="{{ $cliente->name}}" required>
+    </div>
 
-@include('clientes.form',['Modo'=>'editar'])
+    <div class="form-group">
+        <label for="ApellidoPaterno">Apellido Paterno</label>
+        <input type="text" name="ApellidoPaterno" class="form-control" id="ApellidoPaterno" placeholder="Apellido Paterno" value="{{$cliente->ApellidoPaterno}}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="ApellidoMaterno">Apellido Materno</label>
+        <input type="text" name="ApellidoMaterno" class="form-control" id="ApellidoMaterno" placeholder="Apellido Materno" value="{{$cliente->ApellidoMaterno}}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Rut">Rut</label>
+        <input type="text" name="Rut" class="form-control" id="Rut" placeholder="Rut" value="{{$cliente->Rut}}" required maxlength="9" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Correo" value="{{ $cliente->email }}">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password..." minlength="8">
+    </div>
+
+    <div class="form-group">
+        <label for="password_confirmation">Password Confirm</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Password..." id="password_confirmation">
+    </div> 
+
+    <div class="form-group pt-2">
+        <input type="submit" class="btn btn-primary" value="Submit">
+  <a href="{{url()->previous()}}" class="btn btn-primary">Go Back</a>
+    </div>
+
 
 </form>
-</div>
+
 @endsection 

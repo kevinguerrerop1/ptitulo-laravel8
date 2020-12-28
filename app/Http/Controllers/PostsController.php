@@ -94,8 +94,12 @@ class PostsController extends Controller
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
+
+        $post=new Posts();
+        $this->authorize('update',$post);
+
         $campos=[
             'titulo'=>'required|string|max:100',
             'contenido'=>'required'
