@@ -41,31 +41,31 @@ Route::get('/contacto', function () {return view('contacto');});
 Route::get('/about', function () {return view('about');});
 
 //Ruta Empleados
-Route::resource('empleados', EmpleadosController::class);
+Route::resource('empleados', EmpleadosController::class)->middleware('auth');
 
 //Ruta Articulos
-Route::resource('articulos', ArticulosController::class);
+Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
 //Rutas Servicios
-Route::resource('servicios', ServiciosController::class);
+Route::resource('servicios', ServiciosController::class)->middleware('auth');
 
 //Ruta Tipo Servicios
-Route::resource('tiposervicios', TipoServiciosController::class);
+Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
 
 //Ruta Clientes
-Route::resource('clientes', ClientesController::class);
+Route::resource('clientes', ClientesController::class)->middleware('auth');
 
 //Ruta Vehiculos
-Route::resource('vehiculos', VehiculosController::class);
+Route::resource('vehiculos', VehiculosController::class)->middleware('auth');
 
 //Ruta Admin
-Route::resource('admin',AdministradoresController::class);
+Route::resource('admin',AdministradoresController::class)->middleware('auth');
 
 //Ruta Post
 Route::resource('post',PostsController::class)->middleware('auth');
 
 //Ruta Users
-Route::resource('users', UsersController::class);
+Route::resource('users', UsersController::class)->middleware('auth');
 
 //Ruta Roles
-Route::resource('roles',RolesController::class);
+Route::resource('roles',RolesController::class)->middleware('auth');

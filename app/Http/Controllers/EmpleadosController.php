@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleados;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class EmpleadosController extends Controller
 {
@@ -16,8 +19,14 @@ class EmpleadosController extends Controller
     public function index()
     {
 
-        $datos['empleados']=Empleados::simplePaginate(2);
-        return view('empleados.index',$datos);
+        $datos['empleados']= DB::table('users_roles')
+        ->join('users','users.id','=','users_roles.user_id')
+        ->join('roles','roles.id','=','users_roles.role_id')
+        ->select('users.id','users.name','ApellidoPaterno','ApellidoMaterno','rut','email')
+        ->where('roles.name','=','Empleado')
+        ->get();
+
+        return view('Empleados.index',$datos);
     }
 
     /**
@@ -27,7 +36,7 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        return view('empleados.create');
+        return view('users.create');
     }
 
     /**
@@ -81,7 +90,7 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-        $empleado=Empleados::findOrFail($id);
+        $empleado=User::findOrFail($id);
 
         return view('empleados.edit',compact('empleado'));
     }
@@ -93,42 +102,31 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $empleado)
     {
         //Validacion de campos
-         $campos=[
-            'Nombre'=>'required|string|max:100',
-            'ApellidoPaterno'=>'required|string|max:100',
-            'ApellidoMaterno'=>'required|string|max:100',
-            'Correo'=>'required|email'
-        ];
-        
-        //Vaalidacion foto
-        if ($request->hasFile('Foto')) {
-           $campos+=['Foto'=>'required|max:10000|mimes:jpeg,png,jpg'];
+        $request -> validate([
+            'name' => 'required|max:191',
+            'ApellidoPaterno' =>'required|max:191',
+            'ApellidoMaterno'=>'required|max:191',
+            'Rut'=>'required|max:191',
+            'email' => 'required|email|max:191',
+            'password'=>'required|between:8,191|confirmed',
+            'password_confirmation'=>'required'
+        ]);
+
+        $empleado->name=$request->name;
+        $empleado->ApellidoPaterno=$request->ApellidoPaterno;
+        $empleado->ApellidoMaterno=$request->ApellidoMaterno;
+        $empleado->Rut=$request->Rut;
+        $empleado->email=$request->email;
+        if ($request->password !=null) {
+            $empleado->password =Hash::make($request->password);
         }
 
-        $Mensaje=["required"=>'El :attribute es requerido'];
-        $this->validate($request,$campos,$Mensaje);
+        $empleado->save();
 
-        $datosEmpleado=request()->except(['_token','_method']);
-       
-        if ($request->hasFile('Foto')) {
-         
-            $empleado= Empleados::findOrFail($id);
-
-            Storage::delete('public/'.$empleado->Foto);
-
-            $datosEmpleado['Foto']=$request->file('Foto')->store('uploads','public');
-
-        }
-
-        Empleados::where('id','=',$id)->update($datosEmpleado);
-
-        //$empleado= Empleados::findOrFail($id);
-        //return view('empleados.edit',compact('empleado'));
-
-        return redirect('empleados')->with('Mensaje','Empleado modificado con exito');
+        return redirect('/empleados');
     }
 
     /**

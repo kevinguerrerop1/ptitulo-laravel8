@@ -107,7 +107,7 @@ class ClientesController extends Controller
             'ApellidoPaterno' =>'required|max:191',
             'ApellidoMaterno'=>'required|max:191',
             'Rut'=>'required|max:191',
-            //'email' => 'required|email|max:191',
+            'email' => 'required|email|max:191',
             'password'=>'required|between:8,191|confirmed',
             'password_confirmation'=>'required'
         ]);

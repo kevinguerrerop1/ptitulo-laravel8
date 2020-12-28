@@ -31,7 +31,6 @@
           <thead>
             <tr>
             <th>#</th>
-            <th>Foto</th>
             <th>Nombre</th>
             <th>Correo</th>
             <th>Acciones</th>
@@ -40,7 +39,6 @@
           <tfoot>
             <tr>
             <th>#</th>
-            <th>Foto</th>
             <th>Nombre</th>
             <th>Correo</th>
             <th>Acciones</th>
@@ -50,18 +48,11 @@
             @foreach($empleados as $empleado)
             <tr>
               <td>{{$loop->iteration}}</td>
-                <td>
-                    <img src="{{ asset('storage').'/'. $empleado->Foto}}" alt="" class="img img-thumbnail img-fluid" width="100">    
-                </td>
-               <td>{{$empleado->Nombre}} {{$empleado->ApellidoPaterno}} {{$empleado->ApellidoMaterno}}</td>
-                 <td>{{$empleado->Correo}}</td>  
+               
+               <td>{{$empleado->name}} {{$empleado->ApellidoPaterno}} {{$empleado->ApellidoMaterno}}</td>
+                 <td>{{$empleado->email}}</td>  
               <td><a href="{{url('/empleados/'.$empleado->id.'/edit')}}"><i class="fa fa-edit"></i>
               </a>     
-              <form method="post" action="{{url('/post/'.$empleado->id)}}" style="display:inline">
-                
-              {{csrf_field() }}
-              {{ method_field('DELETE')}}
-              <a href="#"  data-toggle="modal" data-target="#deleteModal" data-postid="{{$empleado['id']}}"><i class="fas fa-trash-alt"></i></a>
             </td>
             </tr>
           @endforeach
