@@ -40,6 +40,8 @@ Route::get('/contacto', function () {return view('contacto');});
 //Ruta Nosotros
 Route::get('/about', function () {return view('about');});
 
+Route::get('/adios', function () {return view('hola');});
+
 //Ruta Empleados
 Route::resource('empleados', EmpleadosController::class)->middleware('auth');
 

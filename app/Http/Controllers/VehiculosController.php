@@ -64,7 +64,7 @@ class VehiculosController extends Controller
      */
     public function show(Vehiculos $vehiculos)
     {
-        //
+        //return view('vehiculos.show',['vehiculos'=>$vehiculos]);
     }
 
     /**

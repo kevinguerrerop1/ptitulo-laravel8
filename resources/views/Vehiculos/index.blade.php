@@ -62,13 +62,8 @@
             <td>{{$vehiculo->Modelo}}</td>
             <td>{{$vehiculo->Cilindrada}}</td>
             <td>{{$vehiculo->Color}}</td>
-              <td><a href="{{url('/vehiculos/'.$vehiculo->id.'/edit')}}"><i class="fa fa-edit"></i>
-              </a>     
-              <form method="post" action="{{url('/vehiculos/'.$vehiculo->id)}}" style="display:inline">
-                
-              {{csrf_field() }}
-              {{ method_field('DELETE')}}
-              <a href="#"  data-toggle="modal" data-target="#deleteModal" data-postid="{{$vehiculo['id']}}" disabled><i class="fas fa-trash-alt"></i></a>
+              <td><a href="{{url('/vehiculos/'.$vehiculo->id.'/edit')}}"><i class="fa fa-edit"></i></a>
+                  <a href="{{url('/vehiculos/'.$vehiculo->id.'/')}}"><i class="fa fa-eye"></i></a>
             </td>
             </tr>
           @endforeach

@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servicios extends Model
 {
-    protected $primaryKey ='id';
-
-    public $timestamps= false;
 
     public function TipoServicios(){
         return $this -> belongsTo(tiposervicios::class ,'idtiposervicio','id');
@@ -22,4 +19,5 @@ class Servicios extends Model
     public function Vehiculos(){
         return $this->belongsTo(Vehiculos::class,'idvehiculo','id');
     }
+    
 }
