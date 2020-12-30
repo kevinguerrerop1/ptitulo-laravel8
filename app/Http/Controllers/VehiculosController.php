@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Servicios;
 use App\Models\Vehiculos;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        $datos['vehiculos']=Vehiculos::simplepaginate(10);
+        $datos['vehiculos']=Vehiculos::get();
         return view('vehiculos.index',$datos);
     }
 
@@ -62,43 +63,14 @@ class VehiculosController extends Controller
      * @param  \App\Models\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehiculos $vehiculos)
+    public function show( $id)
     {
-        //return view('vehiculos.show',['vehiculos'=>$vehiculos]);
+        $vehiculos = Vehiculos::findOrFail($id);
+        return view('vehiculos.show',compact('vehiculos'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Vehiculos  $vehiculos
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-       $vehiculo=Vehiculos::findOrFail($id);
-        return view('vehiculos.edit',compact('vehiculo'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vehiculos  $vehiculos
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request,$id)
-    {
-        $campos=[
-            'Patente'=>'required|string|max:6',
-            'Anio'=>'required|string|max:4',
-            'Marca'=>'required|string|max:100',
-            'Modelo'=>'required|string|max:100',
-            'Cilindrada'=>'required|string|max:4',
-            'Color'=>'required|string|max:100'
-        ];
-
-        $Mensaje=["required"=>'El campo es requerido'];
-        $this -> validate($request,$campos,$Mensaje);
+     * Show idate($request,$campos,$Mensaje);
         $datosvehiculos=request()->except(['_token','_method']);
 
         Vehiculos::where('id','=',$id)->update($datosvehiculos);
@@ -114,7 +86,6 @@ class VehiculosController extends Controller
      */
     public function destroy($id)
     {
-        Vehiculos::destroy($id);
-        return redirect('vehiculos')->with('Mensaje','Vehiculo eliminado con exito');
+
     }
 }

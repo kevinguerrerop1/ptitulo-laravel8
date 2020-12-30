@@ -113,6 +113,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Vehiculos</span></a>
       </li>
+       <li class="nav-item">
+        <a class="nav-link" href={{asset('servicios')}}>
+          <i class="fas fa-fw fa-table"></i>
+          <span>Servicios</span></a>
+      </li>
     </ul>
 
     <div id="content-wrapper">

@@ -7,17 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servicios extends Model
 {
-
-    public function TipoServicios(){
-        return $this -> belongsTo(tiposervicios::class ,'idtiposervicio','id');
-    }
-
-    public function Empleados(){
-        return $this-> belongsTo(Empleados::class,'idempleado','id');
-    }
-
-    public function Vehiculos(){
-        return $this->belongsTo(Vehiculos::class,'idvehiculo','id');
-    }
     
+    public function Vehiculos(){
+        return $this-> belongsTo(Vehiculos::class,'vehiculo_id','id');
+    }
 }

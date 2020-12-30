@@ -30,7 +30,7 @@
             <td>{{$loop->iteration}}</td>
 
             <td>{{$servicio->vehiculos->Patente}}</td>
-            <td>Edita][Borrar</td>
+
         </tr>
         @endforeach
     </tbody>
