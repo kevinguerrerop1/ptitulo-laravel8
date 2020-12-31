@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Servicios;
+use App\Models\Estados;
 use Illuminate\Http\Request;
 
-class ServiciosController extends Controller
+class EstadosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        $datos['servicios']=Servicios::get();
-        return view('servicios.index',$datos);
+        $datos['estados']= Estados::get();
+        return view('Estados.index',$datos);
+
     }
 
     /**
@@ -25,7 +26,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        return view('servicios.create');
+        //
     }
 
     /**
@@ -42,33 +43,33 @@ class ServiciosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Servicios  $servicios
+     * @param  \App\Models\Estados  $estados
      * @return \Illuminate\Http\Response
      */
-    public function show(Servicios $servicio)
+    public function show(Estados $estados)
     {
-        return view('servicios.show',['servicio'=>$servicio]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Servicios  $servicios
+     * @param  \App\Models\Estados  $estados
      * @return \Illuminate\Http\Response
      */
-    public function edit(Servicios $servicios)
+    public function edit(Estados $estados)
     {
-        return view('servicios.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Servicios  $servicios
+     * @param  \App\Models\Estados  $estados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Servicios $servicios)
+    public function update(Request $request, Estados $estados)
     {
         //
     }
@@ -76,10 +77,10 @@ class ServiciosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Servicios  $servicios
+     * @param  \App\Models\Estados  $estados
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Servicios $servicios)
+    public function destroy(Estados $estados)
     {
         //
     }

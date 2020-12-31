@@ -5,9 +5,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-
-                <h3>Patente: {{$vehiculos->id}}</h3>
-                <h3>Patente: {{$vehiculos->Patente}}</h3>
+            <h3>Patente: {{$vehiculo->Patente}}</h3>
         </div>
         <div class="card-body">
             <table class="table table-light">
@@ -27,11 +25,12 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>{{$vehiculos->id}}</th>
-                        <th>{{$vehiculos->Patente}}</th>
-                        <th>{{$vehiculos->Anio}}</th>
-                        <th>{{$vehiculos->Marca}}</th>
-                        <th>{{$vehiculos->Modelo}}</th>
+                       @if ($vehiculo->servicios->isNotEmpty())
+                                @foreach ($vehiculo->servicios as $servicio)
+                                    <td>{{$servicio->Descripcion}}</td>
+
+                                @endforeach
+                            @endif
                     </tr>
                 </tfoot>
             </table>

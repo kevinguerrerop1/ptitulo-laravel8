@@ -11,4 +11,9 @@ class Vehiculos extends Model
         return $this->belongsToMany(User::class, 'vehiculo_cliente');
     }
 
+    public function servicios()
+    {
+        return $this->belongsToMany(Servicios::class,'vehiculo_servicio');
+    }
+
 }
