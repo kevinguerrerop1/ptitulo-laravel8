@@ -6,34 +6,43 @@
     <div class="card">
         <div class="card-header">
             <h3>Patente: {{$vehiculo->Patente}}</h3>
+            <h3>Marca: {{$vehiculo->Marca}}</h3>
+            <h3>Modelo: {{$vehiculo->Modelo}}</h3>
         </div>
         <div class="card-body">
-            <table class="table table-light">
-                <thead class="thead-light">
-                    <tr>
-                        <th>#</th>
-                        <th>Patente</th>
-                        <th>Anio</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                       @if ($vehiculo->servicios->isNotEmpty())
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Tipo de Servicio</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Tipo de Servicio</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            @if ($vehiculo->servicios->isNotEmpty())
                                 @foreach ($vehiculo->servicios as $servicio)
-                                    <td>{{$servicio->Descripcion}}</td>
-
+                                    <td>{{$servicio->id}}</td>
+                                    <td>{{$servicio->tiposervicios->NombreTipoServicio}}</td>
+                                    <td>{{$servicio->descripcion}}</td>
+                                    <td>{{$servicio->created_at}}</td>
                                 @endforeach
                             @endif
-                    </tr>
-                </tfoot>
-            </table>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="card-footer">
             <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>

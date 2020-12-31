@@ -34,6 +34,7 @@
                 <th>Patente</th>
                 <th>Tipo de Servicio</th>
                 <th>Descripcion</th>
+                <th>Fecha Mantencion</th>
                 <th>Herramientas</th>
             </tr>
           </thead>
@@ -43,6 +44,7 @@
                 <th>Patente</th>
                 <th>Tipo se Servicio</th>
                 <th>Descripcion</th>
+                <th>Fecha Mantencion</th>
                 <th>Herramientas</th>
           </tfoot>
           <tbody>
@@ -56,6 +58,7 @@
                   @endif</td>
             <td>{{$servicio->tiposervicios->NombreTipoServicio}}</td>
             <td>{{$servicio->descripcion}}</td>
+            <td>{{$servicio->created_at}}</td>
             <td>
                 <a href="{{url('/servicios/'.$servicio->id.'/')}}"><i class="fa fa-eye"></i></a>
             </td>
