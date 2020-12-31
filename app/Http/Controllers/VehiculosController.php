@@ -37,23 +37,24 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
-        $campos=[
+        $request->validate([
             'Patente'=>'required|string|max:6',
             'Anio'=>'required|string|max:4',
             'Marca'=>'required|string|max:100',
             'Modelo'=>'required|string|max:100',
             'Cilindrada'=>'required|string|max:4',
             'Color'=>'required|string|max:100'
-        ];
+        ]);
 
-        $Mensaje=["required"=>'El campo es requerido'];
-        $this -> validate($request,$campos,$Mensaje);
-
-        $datosVehiculo=request()->all();
-        $datosVehiculo=request()->except('_token');
-
-        Vehiculos::insert($datosVehiculo);
-        return redirect('vehiculos')->with('Mensaje','Vehiculo agregado con exito');
+        $vehiculos = new Vehiculos();
+        $vehiculos->Patente=$request->Patente;
+        $vehiculos->Anio=$request->Anio;
+        $vehiculos->Marca=$request->Marca;
+        $vehiculos->Modelo=$request->Modelo;
+        $vehiculos->Cilindrada=$request->Cilindrada;
+        $vehiculos->Color=$request->Color;
+        $vehiculos->save();
+        return redirect('vehiculos');
 
     }
 
@@ -69,7 +70,37 @@ class VehiculosController extends Controller
     }
 
     /**
-     * Show idate($request,$campos,$Mensaje);
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Vehiculos  $vehiculos
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+       $vehiculo=Vehiculos::findOrFail($id);
+        return view('vehiculos.edit',compact('vehiculo'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Vehiculos  $vehiculos
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,$id)
+    {
+        $campos=[
+            'Patente'=>'required|string|max:6',
+            'Anio'=>'required|string|max:4',
+            'Marca'=>'required|string|max:100',
+            'Modelo'=>'required|string|max:100',
+            'Cilindrada'=>'required|string|max:4',
+            'Color'=>'required|string|max:100'
+        ];
+
+        $Mensaje=["required"=>'El campo es requerido'];
+        $this -> validate($request,$campos,$Mensaje);
         $datosvehiculos=request()->except(['_token','_method']);
 
         Vehiculos::where('id','=',$id)->update($datosvehiculos);
@@ -82,7 +113,8 @@ class VehiculosController extends Controller
      *
      * @param  \App\Models\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
-     */
+     **/
+
     public function destroy($id)
     {
 
