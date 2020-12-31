@@ -34,7 +34,6 @@
                         <tr>
                             @if ($servicio->vehiculos->isNotEmpty())
                                 @foreach ($servicio->vehiculos as $vehiculo)
-                                    <span class="badge badge-primary">{{$vehiculo->Patente}}</span>
                                     <td>{{$vehiculo->Patente}}</td>
                                     <td>{{$vehiculo->Anio}}</td>
                                     <td>{{$vehiculo->Marca}}</td>
