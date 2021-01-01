@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicios;
+use App\Models\Vehiculos;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ServiciosController extends Controller
@@ -25,7 +27,8 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        return view('servicios.create');
+        $datos['vehiculos']=Vehiculos::get();
+        return view('servicios.create',$datos);
     }
 
     /**
@@ -36,7 +39,24 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validacion de campos
+        $request -> validate([
+            'id_vehiculo' => 'required',
+            'tiposervicios' =>'required|max:191',
+            'descripcion' =>'required|max:191'
+        ]);
+
+        $servicio= new Servicios();
+        $servicio->tiposervicios=$request->tiposervicios;
+        $servicio->descripcion=$request->descripcion;
+        $servicio->save();
+
+        if ($request->id_vehiculo !=null) {
+            $servicio->vehiculos()->attach($request->id_vehiculo);
+            $servicio->save();
+        }
+
+        return redirect('/servicios');
     }
 
     /**

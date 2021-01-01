@@ -8,7 +8,7 @@
       <h2>Listado de Servicios</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('vehiculos/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Servicio</a>
+      <a href="{{url('servicios/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Servicio</a>
     </div>
   </div>
 
@@ -56,7 +56,7 @@
                         <span class="badge badge-info">{{$vehiculo->Patente}}</span>
                     @endforeach
                   @endif</td>
-            <td>{{$servicio->tiposervicios->NombreTipoServicio}}</td>
+            <td>{{$servicio->tiposervicios}}</td>
             <td>{{$servicio->descripcion}}</td>
             <td>{{$servicio->created_at}}</td>
             <td>

@@ -29,17 +29,17 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            @if ($vehiculo->servicios->isNotEmpty())
+                          @if ($vehiculo->servicios->isNotEmpty())
                                 @foreach ($vehiculo->servicios as $servicio)
+                        <tr>
                                     <td>{{$servicio->id}}</td>
-                                    <td>{{$servicio->tiposervicios->NombreTipoServicio}}</td>
+                                    <td>{{$servicio->tiposervicios}}</td>
                                     <td>{{$servicio->descripcion}}</td>
                                     <td>{{$servicio->created_at}}</td>
-                                @endforeach
-                            @endif
-                            
+
                         </tr>
+                               @endforeach
+                            @endif
                     </tbody>
                 </table>
             </div>

@@ -64,7 +64,7 @@
             <td>{{$vehiculo->Color}}</td>
               <td><a href="{{url('/vehiculos/'.$vehiculo->id.'/edit')}}"><i class="fa fa-edit"></i></a>
                   <a href="{{url('/vehiculos/'.$vehiculo->id.'/')}}"><i class="fa fa-eye"></i></a>
-            </td>
+           </td>
             </tr>
           @endforeach
           </tbody>
