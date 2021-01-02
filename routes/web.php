@@ -12,6 +12,8 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AdministradoresController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\VehiculosClientes;
+use App\Http\Controllers\VehiculosClientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +73,6 @@ Route::resource('users', UsersController::class)->middleware('auth');
 
 //Ruta Roles
 Route::resource('roles',RolesController::class)->middleware('auth');
+
+//Ruta vehiculos clientes
+Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('auth');

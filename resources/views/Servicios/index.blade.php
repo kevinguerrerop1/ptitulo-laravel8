@@ -17,7 +17,7 @@
     <li class="breadcrumb-item">
       <a href="#">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Overview</li>
+    <li class="breadcrumb-item active">Servicios</li>
   </ol>
 <!-- DataTables Example -->
   <div class="card mb-3">
@@ -48,23 +48,22 @@
                 <th>Herramientas</th>
           </tfoot>
           <tbody>
-        @foreach($servicios as $servicio)
-            <tr>
-            <td>{{$servicio->id}}</td>
-            <td>@if ($servicio->vehiculos->isNotEmpty())
-                    @foreach ($servicio->vehiculos as $vehiculo)
+            @foreach($servicios as $servicio)
+              <tr>
+                <td>{{$servicio->id}}</td>
+                <td>@if ($servicio->vehiculos->isNotEmpty())
+                      @foreach ($servicio->vehiculos as $vehiculo)
                         <span class="badge badge-info">{{$vehiculo->Patente}}</span>
-                    @endforeach
-                  @endif</td>
-            <td>{{$servicio->tiposervicios}}</td>
-            <td>{{$servicio->descripcion}}</td>
-            <td>{{$servicio->created_at}}</td>
-            <td>
-                <a href="{{url('/servicios/'.$servicio->id.'/')}}"><i class="fa fa-eye"></i></a>
-            </td>
-            {{-- <td>{{$servicio->estados->nombre}}</td> --}}
-            </tr>
-          @endforeach
+                      @endforeach
+                    @endif</td>
+                <td>{{$servicio->tiposervicios}}</td>
+                <td>{{$servicio->descripcion}}</td>
+                <td>{{$servicio->created_at}}</td>
+                <td>
+                  <a href="{{url('/servicios/'.$servicio->id.'/')}}"><i class="fa fa-eye"></i></a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

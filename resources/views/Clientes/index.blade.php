@@ -55,6 +55,7 @@
                 <td>
                   <a href="{{url('/clientes/'.$cliente->id.'/edit')}}"><i class="fa fa-edit"></i></a>
                   <a href="{{url('/clientes/'.$cliente->id.'/')}}"><i class="fa fa-eye"></i></a>
+                  <a href="{{url('/vehiculosclientes/create')}}"><i class="fa fa-plus-square"></i></a>
                 </td>
               </tr>
             @endforeach

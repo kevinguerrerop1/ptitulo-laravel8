@@ -16,15 +16,8 @@ class CreateServiciosTable extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
            $table->id();
-           $table->unsignedBigInteger('idtiposervicio');
-           $table->unsignedBigInteger('idvehiculo');
-           $table->unsignedBigInteger('idempleado');
-           $table->string('descripcion');
-
-           $table->foreign('idtiposervicio')->references('id')->on('tipo_servicios')->onUpdate('cascade')->onDelete('cascade');
-           $table->foreign('idvehiculo')->references('id')->on('vehiculos')->onUpdate('cascade')->onDelete('cascade');
-           $table->foreign('idempleado')->references('id')->on('empleados')->onUpdate('cascade')->onDelete('cascade');
-            
+           $table->string('tiposervicio');
+           $table->string('descripcion');            
 
            $table->timestamps();
         });
