@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Gate;
 class VehiculosController extends Controller
 {
     /**
+     * Create a new controller instance.
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -20,13 +30,25 @@ class VehiculosController extends Controller
     {
         //dd(Auth::user()->id);
 
-        if (\Auth::user()->hasRole('cliente')) {
+        // if (!\Auth::user()->hasRole('cliente','empleado')) {
+        //     $datos['vehiculos']=DB::table('vehiculos_clientes')
+        //     ->join('users','user_id','=','users.id')
+        //     ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+        //     ->select('*')
+        //     ->where('users.id','=',\Auth::user()->id)
+        //     ->get();
+        // }else{
+        //     $datos2['vehiculos']=Vehiculos::get();
+        //     return view('vehiculos.index',$datos2);
+        // }
+
+        if (Gate::allows('isCliente')) {
             $datos['vehiculos']=DB::table('vehiculos_clientes')
             ->join('users','user_id','=','users.id')
             ->join('vehiculos','vehiculos_id','=','vehiculos.id')
             ->select('*')
             ->where('users.id','=',\Auth::user()->id)
-            ->get();
+            ->get();;
         }else{
             $datos2['vehiculos']=Vehiculos::get();
             return view('vehiculos.index',$datos2);

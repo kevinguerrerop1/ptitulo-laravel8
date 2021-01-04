@@ -42,37 +42,35 @@ Route::get('/contacto', function () {return view('contacto');});
 //Ruta Nosotros
 Route::get('/about', function () {return view('about');});
 
-Route::get('/adios', function () {return view('hola');});
-
 //Ruta Empleados
-Route::resource('empleados', EmpleadosController::class)->middleware('auth');
+Route::resource('empleados', EmpleadosController::class)->middleware('role:admin');
 
 //Ruta Articulos
 Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
 //Rutas Servicios
-Route::resource('servicios', ServiciosController::class)->middleware('can:isAdmin');
+Route::resource('servicios', ServiciosController::class)->middleware('role:admin,empleado');
 
 //Ruta Tipo Servicios
 Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
 
 //Ruta Clientes
-Route::resource('clientes', ClientesController::class)->middleware('auth');
+Route::resource('clientes', ClientesController::class)->middleware('role:admin');
 
 //Ruta Vehiculos
-Route::resource('vehiculos', VehiculosController::class)->middleware('auth');
+Route::resource('vehiculos', VehiculosController::class)->middleware('role:admin,cliente,empleado');
 
 //Ruta Admin
 Route::resource('admin',AdministradoresController::class)->middleware('auth');
 
 //Ruta Post
-Route::resource('post',PostsController::class)->middleware('auth');
+Route::resource('post',PostsController::class)->middleware('role:admin');
 
 //Ruta Users
-Route::resource('users', UsersController::class)->middleware('auth');
+Route::resource('users', UsersController::class)->middleware('role:admin');
 
 //Ruta Roles
 Route::resource('roles',RolesController::class)->middleware('role:admin');
 
 //Ruta vehiculos clientes
-Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('auth');
+Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('role:admin');

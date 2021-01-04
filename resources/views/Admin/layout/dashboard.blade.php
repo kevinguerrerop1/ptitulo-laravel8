@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Check-Ar</title>
+  <title>Check-AR</title>
 
   <!-- Editor de texto avanzado -->
   <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
@@ -84,41 +84,47 @@
           <i class="fas fa-unlock-alt"></i>
           <span>Roles</span></a>
         </li>
-      @endcan
 
-      @canany(['isAdmin','isEmpleado'])
       <li class="nav-item">
         <a class="nav-link" href={{asset('users')}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Usuarios</span></a>
       </li>
-      
+
       <li class="nav-item">
         <a class="nav-link" href={{asset('post')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Post</span></a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href={{asset('empleados')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Empleados</span></a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href={{asset('clientes')}}>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Clientes</span></a>
       </li>
+      @endcan
+
+      @canany(['isAdmin','isEmpleado'])
        <li class="nav-item">
         <a class="nav-link" href={{asset('servicios')}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Servicios</span></a>
       </li>
       @endcanany
+
+      @canany(['isAdmin','isEmpleado','isCliente'])
       <li class="nav-item">
         <a class="nav-link" href={{asset('vehiculos')}}>
           <i class="fas fa-fw fa-table"></i>
           <span>Vehiculos</span></a>
       </li>
+      @endcanany
     </ul>
 
     <div id="content-wrapper">
