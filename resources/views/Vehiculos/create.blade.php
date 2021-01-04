@@ -44,7 +44,7 @@
 
     <div class="form-group">
         <label for="Color">Color</label>
-        <input type="text" name="Color" class="form-control" id="Color" placeholder="Color" value="{{old('Color')}}">
+        <input type="text" name="Color" class="form-control" id="Color" placeholder="Color" value="{{old('Color')}}" required>
     </div>
 
     <div class="form-group pt-2">

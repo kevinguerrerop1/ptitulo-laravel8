@@ -7,7 +7,6 @@
         <div class="card-header">
             <h3>Name: {{$user->name}}</h3>
             <h3>Email: {{$user->email}}</h3>
-            <h3>Numero de post</h3>
         </div>
         <div class="card-body">
             <h5 class="card-title">Role</h5>
@@ -16,7 +15,7 @@
                     @foreach ($user->roles as $role)
                         <span class="badge badge-primary">{{$role->name}}</span>
                     @endforeach
-                  @endif
+                @endif
             </p>
             <h5 class="card-title">Permisos</h5>
             <p class="card-text">
@@ -24,7 +23,7 @@
                     @foreach ($user->permissions as $permission)
                         <span class="badge badge-primary">{{$permission->name}}</span>
                     @endforeach
-                  @endif
+                @endif
             </p>
         </div>
         <div class="card-footer">

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Vehiculos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class ClientesController extends Controller

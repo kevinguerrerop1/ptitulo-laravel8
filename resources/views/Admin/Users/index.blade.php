@@ -51,31 +51,31 @@
           </tfoot>
           <tbody>
             @foreach($users as $user)
-            @if (!\Auth::user()->hasRole('admin') && $user->hasRole('admin')) @continue;@endif
-              <tr {{ Auth::user()->id == $user->id ? 'bgcolor=#ddd' : '' }}>
-                <td>{{$user->id}}</td>
-                <td>{{$user->name}} {{$user->ApellidoPaterno}} {{$user->ApellidoMaterno}}</td>
-                <td>{{$user->Rut}}</td>
-                <td>{{$user->email}}</td>
-                <td>
-                  @if ($user->roles->isNotEmpty())
-                    @foreach ($user->roles as $role)
-                        <span class="badge badge-info">{{$role->name}}</span>
-                    @endforeach
-                  @endif
-                </td>
-                <td>
-                  @if ($user->permissions->isNotEmpty())
-                    @foreach ($user->permissions as $permission)
-                        <span class="badge badge-info">{{$permission->name}}</span>
-                    @endforeach
-                  @endif
-                </td>
-                <td>
-                  <a href="{{url('/users/'.$user->id.'/')}}"><i class="fa fa-eye"></i></a>
-                  <a href="{{url('/users/'.$user->id.'/edit')}}"><i class="fa fa-edit"></i></a>
-                </td>
-              </tr>
+              @if (!\Auth::user()->hasRole('admin') && $user->hasRole('admin')) @continue;@endif
+                <tr {{ Auth::user()->id == $user->id ? 'bgcolor=#ddd' : '' }}>
+                  <td>{{$user->id}}</td>
+                  <td>{{$user->name}} {{$user->ApellidoPaterno}} {{$user->ApellidoMaterno}}</td>
+                  <td>{{$user->Rut}}</td>
+                  <td>{{$user->email}}</td>
+                  <td>
+                    @if ($user->roles->isNotEmpty())
+                      @foreach ($user->roles as $role)
+                          <span class="badge badge-info">{{$role->name}}</span>
+                      @endforeach
+                    @endif
+                  </td>
+                  <td>
+                    @if ($user->permissions->isNotEmpty())
+                      @foreach ($user->permissions as $permission)
+                          <span class="badge badge-info">{{$permission->name}}</span>
+                      @endforeach
+                    @endif
+                  </td>
+                  <td>
+                    <a href="{{url('/users/'.$user->id.'/')}}"><i class="fa fa-eye"></i></a>
+                    <a href="{{url('/users/'.$user->id.'/edit')}}"><i class="fa fa-edit"></i></a>
+                  </td>
+                </tr>
             @endforeach
           </tbody>
         </table>

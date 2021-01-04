@@ -51,7 +51,7 @@ Route::resource('empleados', EmpleadosController::class)->middleware('auth');
 Route::resource('articulos', ArticulosController::class)->middleware('auth');
 
 //Rutas Servicios
-Route::resource('servicios', ServiciosController::class)->middleware('auth');
+Route::resource('servicios', ServiciosController::class)->middleware('can:isAdmin');
 
 //Ruta Tipo Servicios
 Route::resource('tiposervicios', TipoServiciosController::class)->middleware('auth');
@@ -72,7 +72,7 @@ Route::resource('post',PostsController::class)->middleware('auth');
 Route::resource('users', UsersController::class)->middleware('auth');
 
 //Ruta Roles
-Route::resource('roles',RolesController::class)->middleware('can:isAdmin');
+Route::resource('roles',RolesController::class)->middleware('role:admin');
 
 //Ruta vehiculos clientes
 Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('auth');

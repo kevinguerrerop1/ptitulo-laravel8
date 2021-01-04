@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Dashboard</title>
+  <title>Check-Ar</title>
 
   <!-- Editor de texto avanzado -->
   <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>

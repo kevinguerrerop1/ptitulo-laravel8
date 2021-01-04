@@ -7,6 +7,7 @@ use App\Models\Vehiculos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class VehiculosController extends Controller
 {
@@ -17,11 +18,10 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-
         //dd(Auth::user()->id);
 
         if (\Auth::user()->hasRole('cliente')) {
-            $datos['vehiculos']= DB::table('vehiculos_clientes')
+            $datos['vehiculos']=DB::table('vehiculos_clientes')
             ->join('users','user_id','=','users.id')
             ->join('vehiculos','vehiculos_id','=','vehiculos.id')
             ->select('*')
@@ -31,7 +31,7 @@ class VehiculosController extends Controller
             $datos2['vehiculos']=Vehiculos::get();
             return view('vehiculos.index',$datos2);
         }
-        return view('vehiculos.index',$datos);
+        return view('vehiculos.vehiculosrole.index',$datos);
     }
 
     /**
@@ -52,6 +52,7 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'Patente'=>'required|string|max:6',
             'Anio'=>'required|string|max:4',

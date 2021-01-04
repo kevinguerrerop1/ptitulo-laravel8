@@ -19,7 +19,7 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-
+        
         $datos['empleados']= DB::table('users_roles')
         ->join('users','users.id','=','users_roles.user_id')
         ->join('roles','roles.id','=','users_roles.role_id')
