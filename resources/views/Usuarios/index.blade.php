@@ -11,8 +11,6 @@
       <a href="{{url('clientes/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Clientes</a>
     </div>
   </div>
-
-
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <a href="#">Dashboard</a>
@@ -73,8 +71,6 @@
         </table>
       </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
   </div>
 </div>
 @endsection
-</div>

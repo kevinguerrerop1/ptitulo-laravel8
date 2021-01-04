@@ -31,7 +31,7 @@
 
     <div class="form-group pt-2">
         <input class="btn btn-primary" type="submit" value="Submit">
-        <a href="{{url('post')}}" class="btn btn-primary">Regresar</a>
+        <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 </form>
 

@@ -49,4 +49,4 @@ value="{{isset($vehiculo->Color)?$vehiculo->Color:old('Color')}}">
 <br>
 <input type="submit" class="btn btn-success" value="{{ $Modo== 'crear' ? 'Agregar':'Modificar'}}">
 
-<a href="{{url('vehiculos')}}" class="btn btn-primary">Regresar</a>
+<a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
