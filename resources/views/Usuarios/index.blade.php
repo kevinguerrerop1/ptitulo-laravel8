@@ -28,45 +28,45 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>#</th>
-            <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Rut</th>
-            <th>Correo</th>
-            <th>Acciones</th>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Apellido Paterno</th>
+              <th>Apellido Materno</th>
+              <th>Rut</th>
+              <th>Correo</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>#</th>
-            <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Rut</th>
-            <th>Correo</th>
-            <th>Acciones</th>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Apellido Paterno</th>
+              <th>Apellido Materno</th>
+              <th>Rut</th>
+              <th>Correo</th>
+              <th>Acciones</th>
             </tr>
           </tfoot>
           <tbody>
-        @foreach($clientes as $cliente)
-            <tr>
-              <td>{{$loop->iteration}}</td>
-            <td>{{$cliente->Nombre}}</td>
-            <td>{{$cliente->ApellidoPaterno}}</td>
-            <td>{{$cliente->ApellidoMaterno}}</td>
-            <td>{{$cliente->Rut}}</td>
-            <td>{{$cliente->Correo}}</td>
-              <td><a href="{{url('/clientes/'.$cliente->id.'/edit')}}"><i class="fa fa-edit"></i>
-              </a>     
-              <form method="post" action="{{url('/clientes/'.$cliente->id)}}" style="display:inline">
-                
-              {{csrf_field() }}
-              {{ method_field('DELETE')}}
-              <a href="#"  data-toggle="modal" data-target="#deleteModal" data-postid="{{$cliente['id']}}"><i class="fas fa-trash-alt"></i></a>
-            </td>
-            </tr>
-          @endforeach
+            @foreach($clientes as $cliente)
+              <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$cliente->Nombre}}</td>
+                <td>{{$cliente->ApellidoPaterno}}</td>
+                <td>{{$cliente->ApellidoMaterno}}</td>
+                <td>{{$cliente->Rut}}</td>
+                <td>{{$cliente->Correo}}</td>
+                <td><a href="{{url('/clientes/'.$cliente->id.'/edit')}}"><i class="fa fa-edit"></i>
+                </a>     
+                <form method="post" action="{{url('/clientes/'.$cliente->id)}}" style="display:inline">
+                  
+                {{csrf_field() }}
+                {{ method_field('DELETE')}}
+                <a href="#"  data-toggle="modal" data-target="#deleteModal" data-postid="{{$cliente['id']}}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

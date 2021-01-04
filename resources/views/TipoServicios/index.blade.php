@@ -17,7 +17,7 @@
 <table class="table table-light table-hover">
     <thead class="thead-light">
         <tr>
-            <th>#</th>
+            <th>Codigo</th>
             <th>Nombre</th>
             <th>Acciones</th>
         </tr>

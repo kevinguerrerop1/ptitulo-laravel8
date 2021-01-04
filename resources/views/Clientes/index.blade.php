@@ -29,7 +29,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Codigo</th>
               <th>Nombre</th>
               <th>Rut</th>
               <th>Email</th>
@@ -38,7 +38,7 @@
           </thead>
           <tfoot>
             <tr>
-              <th>#</th>
+              <th>Codigo</th>
               <th>Nombre</th>
               <th>Rut</th>
               <th>Email</th>

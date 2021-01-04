@@ -30,7 +30,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Id</th>
+              <th>Codigo</th>
               <th>Titulo</th>
               <th>Contenido</th>
               <th>Imagen</th>
@@ -40,7 +40,7 @@
           </thead>
           <tfoot>
             <tr>
-              <th>Id</th>
+              <th>Codigo</th>
               <th>Titulo</th>
               <th>Contenido</th>
               <th>Imagen</th>

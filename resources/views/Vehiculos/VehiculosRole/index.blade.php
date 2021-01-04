@@ -27,7 +27,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>#</th>
+                <th>Codigo</th>
                 <th>Patente</th>
                 <th>Año</th>
                 <th>Marca</th>
@@ -39,7 +39,7 @@
           </thead>
           <tfoot>
             <tr>
-                <th>#</th>
+                <th>Codigo</th>
                 <th>Patente</th>
                 <th>Año</th>
                 <th>Marca</th>
@@ -50,20 +50,20 @@
             </tr>
           </tfoot>
           <tbody>
-        @foreach($vehiculos as $vehiculo)
-            <tr>
-              <td>{{$loop->iteration}}</td>
-              <td>{{$vehiculo->Patente}}</td>
-              <td>{{$vehiculo->Anio}}</td>
-              <td>{{$vehiculo->Marca}}</td>
-              <td>{{$vehiculo->Modelo}}</td>
-              <td>{{$vehiculo->Cilindrada}}</td>
-              <td>{{$vehiculo->Color}}</td>
-              <td>
-                <a href="{{url('/vehiculos/'.$vehiculo->id.'/')}}"><i class="fa fa-eye"></i></a>
-              </td>
-            </tr>
-          @endforeach
+            @foreach($vehiculos as $vehiculo)
+              <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$vehiculo->Patente}}</td>
+                <td>{{$vehiculo->Anio}}</td>
+                <td>{{$vehiculo->Marca}}</td>
+                <td>{{$vehiculo->Modelo}}</td>
+                <td>{{$vehiculo->Cilindrada}}</td>
+                <td>{{$vehiculo->Color}}</td>
+                <td>
+                  <a href="{{url('/vehiculos/'.$vehiculo->id.'/')}}"><i class="fa fa-eye"></i></a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -71,4 +71,3 @@
   </div>
 </div>
 @endsection
-</div>
