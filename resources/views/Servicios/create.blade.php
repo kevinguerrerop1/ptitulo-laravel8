@@ -18,18 +18,21 @@
 {{ csrf_field()}}
 
     <div class="form-group">
-        <label for="id_vehiculo">Codigo Vehiculo</label>
-        <input type="number" name="id_vehiculo" class="form-control" id="id_vehiculo" placeholder="Codigo Vehiculo" value="{{old('Patente')}}">
+      <label for="id_vehiculo">Codigo Vehiculo</label>
+      <input type="number" name="id_vehiculo" class="form-control" id="id_vehiculo" placeholder="Codigo Vehiculo" value="{{old('Patente')}}">
     </div>
 
     <div class="form-group">
-            <label for="tiposervicios">Tipo Servicio</label>
-            <input type="text" name="tiposervicios" class="form-control" id="tiposervicios" placeholder="Tiposervicio" value="Mantencion">
+      <label for="tiposervicios">Tipo Servicio</label>
+      <select class="role form-control" name="tiposervicios" id="tiposervicios">
+        <option value="Mantencion">Mantencion</option>
+        <option value="Reparacion">Reparacion</option>
+      </select>
     </div>
 
     <div class="form-group">
-        <label for="descripcion">Descripcion</label>
-        <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="descripcion" value="{{old('descripcion')}}">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Descripcion" value="{{old('descripcion')}}">
     </div>
 
     <div class="form-group pt-2">

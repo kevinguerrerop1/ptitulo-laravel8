@@ -4,10 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +27,9 @@ class PostsController extends Controller
      */
     public function index()
     {
+        if (!Gate::allows('isAdmin')) {
+            abort(403);
+        }
         $datos['posts']=Posts::get();
         return view ('admin.post.index',$datos);
     }

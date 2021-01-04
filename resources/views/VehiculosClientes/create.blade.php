@@ -14,43 +14,63 @@
     </div>
 @endif
 
-<form action="{{url('/vehiculos')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+<form action="{{url('/vehiculosclientes')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
 {{ csrf_field()}}
-
     <div class="form-group">
-        <label for="Patente">Patente</label>
-        <input type="text" name="Patente" class="form-control" id="Patente" placeholder="Patente" style="text-transform:uppercase;" value="{{old('Patente')}}" onkeyup="javascript:this.value=this.value.toUpperCase();" required maxlength="6">
-    </div>
 
-    <div class="form-group">
-        <label for="Anio">Año</label>
-        <input type="text" name="Anio" class="form-control" id="Anio" placeholder="Año" value="{{old('Anio')}}" required>
-    </div>
+        <div class="form-group">
+            <label for="name">Codigo Cliente</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Codigo Cliente" value="{{old('name')}}" required>
+        </div>
 
-    <div class="form-group">
-        <label for="Marca">Marca</label>
-        <input type="text" name="Marca" class="form-control" id="Marca" placeholder="Marca" value="{{old('Marca')}}" required>
-    </div>
+        <div class="form-group">
+            <label for="name">Codigo Vehiculo</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Codigo Vehiculo" value="{{old('name')}}" required>
+        </div>
 
-    <div class="form-group">
-        <label for="Modelo">Modelo</label>
-        <input type="text" name="Modelo" class="form-control" id="Modelo" placeholder="Modelo" value="{{old('Modelo')}}" required>
-    </div>
-
-    <div class="form-group">
-        <label for="Cilindrada">Cilindrada</label>
-        <input type="number" name="Cilindrada" class="form-control" id="Cilindrada" placeholder="Cilindrada" value="{{old('Cilindrada')}}" maxlength="4">
-    </div>
-
-    <div class="form-group">
-        <label for="Color">Color</label>
-        <input type="text" name="Color" class="form-control" id="Color" placeholder="Color" value="{{old('Color')}}">
-    </div>
-
-    <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
-    </div>
-
+    </div>    
 </form>
 
+  <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+        <i class="fas fa-table"></i>
+            Listado de Clientes
+        </div>
+        <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Patente</th>
+                    <th>Año</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Patente</th>
+                    <th>Año</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach($vehiculos as $vehiculo)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$vehiculo->Patente}}</td>
+                        <td>{{$vehiculo->Anio}}</td>
+                        <td>{{$vehiculo->Marca}}</td>
+                        <td>{{$vehiculo->Modelo}}</td>
+                    </tr>
+            @endforeach
+            </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
 @endsection

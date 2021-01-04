@@ -29,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->roles->first()->slug == 'admin';
         });
 
-        Gate::define('isManager', function ($user) {
-            return $user->roles->first()->slug == 'manager';
+        Gate::define('isEmpleado', function ($user) {
+            return $user->roles->first()->slug == 'empleado';
         });
 
         Gate::define('isCliente', function ($user) {

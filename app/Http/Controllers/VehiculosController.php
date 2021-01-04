@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Servicios;
 use App\Models\Vehiculos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VehiculosController extends Controller
 {
@@ -15,7 +17,20 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        $datos['vehiculos']=Vehiculos::get();
+
+        //dd(Auth::user()->id);
+
+        if (\Auth::user()->hasRole('cliente')) {
+            $datos['vehiculos']= DB::table('vehiculo_cliente')
+            ->join('users','user_id','=','users.id')
+            ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+            ->select('*')
+            ->where('users.id','=',\Auth::user()->id)
+            ->get();
+        }else{
+            $datos2['vehiculos']=Vehiculos::get();
+            return view('vehiculos.index',$datos2);
+        }
         return view('vehiculos.index',$datos);
     }
 

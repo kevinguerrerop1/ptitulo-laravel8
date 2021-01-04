@@ -48,14 +48,14 @@
           <tbody>
             @foreach($clientes as $cliente)
               <tr>
-                <td>{{$loop->iteration}}</td>
+                <td>{{$cliente->id}}</td>
                 <td>{{$cliente->name}} {{$cliente->ApellidoPaterno}} {{$cliente->ApellidoMaterno}}</td>                
                 <td>{{$cliente->rut}}</td>
                 <td>{{$cliente->email}}</td>
                 <td>
                   <a href="{{url('/clientes/'.$cliente->id.'/edit')}}"><i class="fa fa-edit"></i></a>
                   <a href="{{url('/clientes/'.$cliente->id.'/')}}"><i class="fa fa-eye"></i></a>
-                  <a href="{{url('/vehiculosclientes/create')}}"><i class="fa fa-plus-square"></i></a>
+                  <a href="{{url('/vehiculosclientes/create/')}}"><i class="fa fa-plus-square"></i></a>
                 </td>
               </tr>
             @endforeach

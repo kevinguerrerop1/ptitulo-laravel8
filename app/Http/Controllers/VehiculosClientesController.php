@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clientes;
+use App\Models\User;
+use App\Models\Vehiculos;
 use App\Models\VehiculosClientes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VehiculosClientesController extends Controller
 {
@@ -14,7 +18,7 @@ class VehiculosClientesController extends Controller
      */
     public function index()
     {
-        return view('vehiculosclientes.index');;
+        return view('vehiculosclientes.index');
     }
 
     /**
@@ -24,7 +28,8 @@ class VehiculosClientesController extends Controller
      */
     public function create()
     {
-        return view('vehiculosclientes.create');
+        $datos['vehiculos']=Vehiculos::get();
+        return view('vehiculosclientes.create',$datos);
     }
 
     /**
@@ -35,7 +40,13 @@ class VehiculosClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'id_vehiculo' => 'required',
+            'id_user' => 'required'
+        ]);
+
+        
+
     }
 
     /**
@@ -44,9 +55,10 @@ class VehiculosClientesController extends Controller
      * @param  \App\Models\VehiculosClientes  $vehiculosClientes
      * @return \Illuminate\Http\Response
      */
-    public function show(VehiculosClientes $vehiculosClientes)
+    public function show($cliente)
     {
-        //
+        dd($cliente);
+        //return view('vehiculosclientes.create',['cliente'=>$cliente]);
     }
 
     /**

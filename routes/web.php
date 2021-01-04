@@ -72,7 +72,7 @@ Route::resource('post',PostsController::class)->middleware('auth');
 Route::resource('users', UsersController::class)->middleware('auth');
 
 //Ruta Roles
-Route::resource('roles',RolesController::class)->middleware('auth');
+Route::resource('roles',RolesController::class)->middleware('can:isAdmin');
 
 //Ruta vehiculos clientes
 Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('auth');
