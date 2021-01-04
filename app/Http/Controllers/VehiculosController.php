@@ -21,7 +21,7 @@ class VehiculosController extends Controller
         //dd(Auth::user()->id);
 
         if (\Auth::user()->hasRole('cliente')) {
-            $datos['vehiculos']= DB::table('vehiculo_cliente')
+            $datos['vehiculos']= DB::table('vehiculos_clientes')
             ->join('users','user_id','=','users.id')
             ->join('vehiculos','vehiculos_id','=','vehiculos.id')
             ->select('*')

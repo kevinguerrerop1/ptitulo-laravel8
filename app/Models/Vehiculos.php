@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehiculos extends Model
 {
-    public function usuario(){
-        return $this->belongsToMany(User::class, 'vehiculo_cliente');
+   public function usuario(){
+        return $this->belongsToMany(User::class, 'vehiculos_clientes');
     }
 
     public function servicios()
     {
         return $this->belongsToMany(Servicios::class,'vehiculo_servicio');
-    }
+    } 
 
 }

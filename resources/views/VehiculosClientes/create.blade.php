@@ -19,17 +19,19 @@
     <div class="form-group">
 
         <div class="form-group">
-            <label for="name">Codigo Cliente</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="Codigo Cliente" value="{{old('name')}}" required>
+            <label for="vehiculos_id">Codigo Vehiculo</label>
+            <input type="text" name="vehiculos_id" class="form-control" id="vehiculos_id" placeholder="Codigo Vehiculo" value="{{old('vehiculos_id')}}">
         </div>
 
         <div class="form-group">
-            <label for="name">Codigo Vehiculo</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="Codigo Vehiculo" value="{{old('name')}}" required>
+            <label for="user_id">Codigo Cliente</label>
+            <input type="text" name="user_id" class="form-control" id="user_id" placeholder="Codigo Cliente" value="{{old('user_id')}}">
         </div>
 
-    </div>    
-</form>
+        <div class="form-group pt-2">
+        <input type="submit" class="btn btn-primary" value="Submit">
+
+    </div>
 
   <!-- DataTables Example -->
     <div class="card mb-3">
@@ -73,4 +75,6 @@
         </div>
         </div>
     </div>
+       </div>    
+</form>
 @endsection

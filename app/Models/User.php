@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasRoleAndPermissions;
+use App\Traits\HasVehiculosAndClientes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,6 +42,6 @@ class User extends Authenticatable
 
     //Relacion Mucho a Mucho
     public function vehiculos(){
-        return $this->belongsToMany(Vehiculos::class, 'vehiculo_cliente');
+        return $this->belongsToMany(Vehiculos::class, 'vehiculos_clientes');
     }
 }

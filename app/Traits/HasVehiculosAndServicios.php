@@ -2,8 +2,8 @@
 
 namespace App\Traits;
 
-use App\Models\Role;
-use App\Models\Permission;
+use App\Models\Vehiculos;
+use App\Models\Servicios;
 
 
 trait HasVehiculosAndServicios
@@ -19,3 +19,4 @@ trait HasVehiculosAndServicios
     
 
 }
+

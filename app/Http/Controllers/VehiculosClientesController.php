@@ -41,11 +41,28 @@ class VehiculosClientesController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'id_vehiculo' => 'required',
-            'id_user' => 'required'
+            'vehiculos_id' => 'required',
+            'user_id' => 'required'
         ]);
-
         
+        //dd($request);
+        
+        $vc = new VehiculosClientes();
+
+        $vc->vehiculos_id=$request->vehiculos_id;
+        $vc->user_id=$request->user_id;
+        $vc->save();
+        
+        // if ($request->vehiculos_id !=null) {
+        //     $vehiculosClientes->usuario()->attach($request->vehiculos_id);
+        //     $vehiculosClientes->save();
+        // }
+
+        // if ($request->user_id !=null) {
+        //     $vehiculosClientes->vehiculos()->attach($request->user_id);
+        //     $vehiculosClientes->save();
+        // }
+        return redirect('/clientes');
 
     }
 

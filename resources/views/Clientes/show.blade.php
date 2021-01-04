@@ -33,18 +33,18 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            @if ($cliente->vehiculos->isNotEmpty())
-                                @foreach ($cliente->vehiculos as $vehiculo)
+                        @if ($cliente->vehiculos->isNotEmpty())
+                            @foreach ($cliente->vehiculos as $vehiculo)
+                                <tr>
                                     <td>{{$vehiculo->Patente}}</td>
                                     <td>{{$vehiculo->Anio}}</td>
                                     <td>{{$vehiculo->Marca}}</td>
                                     <td>{{$vehiculo->Modelo}}</td>
                                     <td>{{$vehiculo->Cilindrada}}</td>
                                     <td>{{$vehiculo->Color}}</td>
-                                @endforeach
-                            @endif
-                        </tr>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
