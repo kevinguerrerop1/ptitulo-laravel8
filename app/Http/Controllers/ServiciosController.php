@@ -86,9 +86,10 @@ class ServiciosController extends Controller
      * @param  \App\Models\Servicios  $servicios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Servicios $servicios)
+    public function edit( $id)
     {
-        return view('servicios.edit');
+        $servicio=Servicios::findOrFail($id);
+        return view('servicios.edit',['servicio'=>$servicio]);
     }
 
     /**

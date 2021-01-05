@@ -60,6 +60,7 @@
                 <td>{{$servicio->descripcion}}</td>
                 <td>{{$servicio->created_at}}</td>
                 <td>
+                  <a href="{{url('/servicios/'.$servicio->id.'/edit')}}"><i class="fa fa-edit" hidden></i></a>
                   <a href="{{url('/servicios/'.$servicio->id.'/')}}"><i class="fa fa-eye"></i></a>
                 </td>
               </tr>

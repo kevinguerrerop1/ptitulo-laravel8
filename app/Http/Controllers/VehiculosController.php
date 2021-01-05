@@ -28,20 +28,7 @@ class VehiculosController extends Controller
      */
     public function index()
     {
-        //dd(Auth::user()->id);
-
-        // if (!\Auth::user()->hasRole('cliente','empleado')) {
-        //     $datos['vehiculos']=DB::table('vehiculos_clientes')
-        //     ->join('users','user_id','=','users.id')
-        //     ->join('vehiculos','vehiculos_id','=','vehiculos.id')
-        //     ->select('*')
-        //     ->where('users.id','=',\Auth::user()->id)
-        //     ->get();
-        // }else{
-        //     $datos2['vehiculos']=Vehiculos::get();
-        //     return view('vehiculos.index',$datos2);
-        // }
-
+       
         if (Gate::allows('isCliente')) {
             $datos['vehiculos']=DB::table('vehiculos_clientes')
             ->join('users','user_id','=','users.id')
@@ -49,6 +36,9 @@ class VehiculosController extends Controller
             ->select('*')
             ->where('users.id','=',\Auth::user()->id)
             ->get();;
+        }else if (Gate::allows('isEmpleado')) {
+            $datos2['vehiculos']=Vehiculos::get();
+            return view('vehiculos.vehiculosrole.index',$datos2);
         }else{
             $datos2['vehiculos']=Vehiculos::get();
             return view('vehiculos.index',$datos2);
