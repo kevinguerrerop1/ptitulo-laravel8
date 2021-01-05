@@ -74,3 +74,6 @@ Route::resource('roles',RolesController::class)->middleware('role:admin');
 
 //Ruta vehiculos clientes
 Route::resource('vehiculosclientes',VehiculosClientesController::class)->middleware('role:admin');
+
+//Ruta Charts -> Grafico
+Route::resource('chart',ChartController::class);

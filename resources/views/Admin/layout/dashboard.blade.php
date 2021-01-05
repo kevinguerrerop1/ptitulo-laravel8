@@ -71,14 +71,14 @@
     <div id="wrapper">
 
     <!-- Sidebar -->
+    @can('isAdmin')
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{{asset('/')}}">
+        <a class="nav-link" href="{{asset('/admin')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span>Panel de informacion</span>
         </a>
       </li>
-      @can('isAdmin')
       <li class="nav-item">
         <a class="nav-link" href={{asset('roles')}}>
           <i class="fas fa-unlock-alt"></i>
