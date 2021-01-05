@@ -87,25 +87,25 @@
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('users')}}>
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fa fa-users"></i>
           <span>Usuarios</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('post')}}>
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fa fa-align-justify"></i>
           <span>Post</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('empleados')}}>
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fa fa-user"></i>
           <span>Empleados</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('clientes')}}>
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fa fa-user"></i>
           <span>Clientes</span></a>
       </li>
       @endcan
@@ -113,7 +113,7 @@
       @canany(['isAdmin','isEmpleado'])
        <li class="nav-item">
         <a class="nav-link" href={{asset('servicios')}}>
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fa fa-cogs"></i>
           <span>Servicios</span></a>
       </li>
       @endcanany
@@ -121,7 +121,7 @@
       @canany(['isAdmin','isEmpleado','isCliente'])
       <li class="nav-item">
         <a class="nav-link" href={{asset('vehiculos')}}>
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fa fa-car"></i>
           <span>Vehiculos</span></a>
       </li>
       @endcanany
