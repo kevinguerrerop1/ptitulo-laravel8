@@ -71,14 +71,15 @@
     <div id="wrapper">
 
     <!-- Sidebar -->
-    @can('isAdmin')
     <ul class="sidebar navbar-nav">
+      @can('isAdmin')
       <li class="nav-item active">
-        <a class="nav-link" href="{{asset('/admin')}}">
+        <a class="nav-link" href="{{asset('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Panel de informacion</span>
+          <span>Dashboard</span>
         </a>
       </li>
+      
       <li class="nav-item">
         <a class="nav-link" href={{asset('roles')}}>
           <i class="fas fa-unlock-alt"></i>
@@ -87,25 +88,25 @@
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('users')}}>
-          <i class="fa fa-users"></i>
+          <i class="fa fa-users" aria-hidden="true"></i>
           <span>Usuarios</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('post')}}>
-          <i class="fa fa-align-justify"></i>
+          <i class="fa fa-align-left" aria-hidden="true"></i>
           <span>Post</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('empleados')}}>
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user" aria-hidden="true"></i>
           <span>Empleados</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href={{asset('clientes')}}>
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user" aria-hidden="true"></i>
           <span>Clientes</span></a>
       </li>
       @endcan
@@ -113,7 +114,7 @@
       @canany(['isAdmin','isEmpleado'])
        <li class="nav-item">
         <a class="nav-link" href={{asset('servicios')}}>
-          <i class="fa fa-cogs"></i>
+          <i class="fa fa-cogs" aria-hidden="true"></i>
           <span>Servicios</span></a>
       </li>
       @endcanany
@@ -121,7 +122,7 @@
       @canany(['isAdmin','isEmpleado','isCliente'])
       <li class="nav-item">
         <a class="nav-link" href={{asset('vehiculos')}}>
-          <i class="fa fa-car"></i>
+          <i class="fa fa-car" aria-hidden="true"></i>
           <span>Vehiculos</span></a>
       </li>
       @endcanany
