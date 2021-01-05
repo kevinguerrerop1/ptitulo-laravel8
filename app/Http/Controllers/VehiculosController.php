@@ -35,7 +35,7 @@ class VehiculosController extends Controller
             ->join('vehiculos','vehiculos_id','=','vehiculos.id')
             ->select('*')
             ->where('users.id','=',\Auth::user()->id)
-            ->get();;
+            ->get();
         }else if (Gate::allows('isEmpleado')) {
             $datos2['vehiculos']=Vehiculos::get();
             return view('vehiculos.vehiculosrole.index',$datos2);

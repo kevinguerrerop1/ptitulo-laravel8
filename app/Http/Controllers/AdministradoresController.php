@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Administradores;
+use App\Models\Servicios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class AdministradoresController extends Controller
 {
@@ -24,7 +27,21 @@ class AdministradoresController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        if (Gate::allows('isAdmin')) {
+            return view('admin.index'); 
+        }elseif(Gate::allows('isCliente')){
+            $datosCliente['vehiculos']=DB::table('vehiculos_clientes')
+            ->join('users','user_id','=','users.id')
+            ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+            ->select('*')
+            ->where('users.id','=',\Auth::user()->id)
+            ->get();
+            return view('vehiculos.vehiculosrole.index',$datosCliente);
+        }elseif(Gate::allows('isEmpleado')){
+            $datosEmpleado['servicios']=Servicios::get();
+            return view('servicios.index',$datosEmpleado);
+        }
+        
     }
 
     /**
