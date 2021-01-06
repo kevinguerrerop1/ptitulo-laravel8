@@ -8,7 +8,7 @@
       <h2>Listado de Vehiculos</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('vehiculos/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Clientes</a>
+      <a href="{{url('vehiculos/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Vehiculo</a>
     </div>
   </div>
 

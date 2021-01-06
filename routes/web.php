@@ -13,6 +13,7 @@ use App\Http\Controllers\AdministradoresController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\VehiculosClientesController;
+use App\Http\Controllers\ChartController;
 
 
 /*

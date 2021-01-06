@@ -94,14 +94,14 @@
 
           Highcharts.chart('chart-container',{
               title:{
-                  text:'Nuevos Usuarios'
+                  text:'Conteo De Servicios'
               },
               xAxis:{
                   categories:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
               },
               yAxis:{
                   title:{
-                      text:'Numero de nuevos usuarios'
+                      text:'Numero de servicios'
                   }
               },
               legend:{
@@ -115,7 +115,7 @@
                   }
               },
               series:[{
-                  name:'Usuario Nuevo',
+                  name:'Servicios',
                   data:datas
               }],
               responsive:{

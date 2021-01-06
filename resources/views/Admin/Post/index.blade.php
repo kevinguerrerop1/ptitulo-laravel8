@@ -8,7 +8,7 @@
       <h2>Listado de Post</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('./post/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Crear Nuevo Post</a>
+      <a href="{{url('./post/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Post</a>
     </div>
   </div>
 
@@ -62,9 +62,6 @@
               </a>     
               <form method="post" action="{{url('/post/'.$post->id)}}" style="display:inline">
                 
-              {{csrf_field() }}
-              {{ method_field('DELETE')}}
-              <a href="#"  data-toggle="modal" data-target="#deleteModal" data-postid="{{$post['id']}}"><i class="fas fa-trash-alt"></i></a>
             </td>
             </tr>
           @endforeach

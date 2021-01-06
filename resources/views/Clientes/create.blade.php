@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Create New User</h1>
+<h1>Create Nuevo Cliente</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">

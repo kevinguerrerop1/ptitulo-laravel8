@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>‎¿Quieres ponerte en contacto? Rellene el siguiente formulario para enviarme un mensaje y me pondre en contacto con usted tan pronto como sea posible!</p>
+        <p>‎¿Quieres ponerte en contacto? Rellene el siguiente formulario para enviarnos un mensaje y nos pondremos en contacto con usted tan pronto como sea posible!</p>
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->

@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container">
+    <h1>Detalles</h1>
+    <br>
     <div class="card">
         <div class="card-header">
             <h3>Nombre del Rol: {{$role->name}}</h3>

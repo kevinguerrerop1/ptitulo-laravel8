@@ -8,7 +8,7 @@
       <h2>Listado de Servicios</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('servicios/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Servicio</a>
+      <a href="{{url('servicios/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Servicio</a>
     </div>
   </div>
 

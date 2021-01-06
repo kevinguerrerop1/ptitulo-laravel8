@@ -2,8 +2,8 @@
 <div class="form-group">
 <label for="Patente" class="control-label">{{'Patente'}}</label>
 <input type="text" name="Patente" id="Patente" 
-class="form-control {{$errors->has('Patente')?'is-invalid':''}}" 
-value="{{isset($vehiculo->Patente)?$vehiculo->Patente:old('Patente')}}">
+class="form-control {{$errors->has('Patente')?'is-invalid':''}}" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"
+value="{{isset($vehiculo->Patente)?$vehiculo->Patente:old('Patente')}}" required maxlength="6">
 {!! $errors->first('Patente',' <div class="invalid-feedback">:message</div>') !!}
 </div>
 

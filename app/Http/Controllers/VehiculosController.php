@@ -66,7 +66,7 @@ class VehiculosController extends Controller
     {
 
         $request->validate([
-            'Patente'=>'required|string|max:6',
+            'Patente'=>'required|unique:vehiculos|string|max:6',
             'Anio'=>'required|string|max:4',
             'Marca'=>'required|string|max:100',
             'Modelo'=>'required|string|max:100',

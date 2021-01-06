@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1>Editar Post</h1>
+
 <!--FORMATO ALETAR-->
 @if(Session::has('Mensaje'))
 <div class="alert alert-success" role="alert">

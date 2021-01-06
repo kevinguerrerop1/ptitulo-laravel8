@@ -44,13 +44,13 @@
     </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" id="password" placeholder="Password..." minlength="8">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" minlength="8">
     </div>
 
     <div class="form-group">
-        <label for="password_confirmation">Password Confirm</label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="Password..." id="password_confirmation">
+        <label for="password_confirmation">Confirmar Contraseña</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña" id="password_confirmation">
     </div> 
 
     <div class="form-group pt-2">

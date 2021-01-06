@@ -19,7 +19,7 @@
 
     <div class="form-group">
         <label for="Patente">Patente</label>
-        <input type="text" name="Patente" class="form-control" id="Patente" placeholder="Patente" style="text-transform:uppercase;" value="{{old('Patente')}}" onkeyup="javascript:this.value=this.value.toUpperCase();" required maxlength="6">
+        <input type="text" name="Patente" class="form-control" id="Patente" placeholder="Patente" style="text-transform:uppercase;" value="{{old('Patente')}}" onkeyup="javascript:this.value=this.value.toUpperCase();" required maxlength="6" minlength="6">
     </div>
 
     <div class="form-group">

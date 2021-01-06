@@ -8,7 +8,7 @@
       <h2>Listado de Post</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('clientes/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Clientes</a>
+      <a href="{{url('clientes/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Clientes</a>
     </div>
   </div>
   <ol class="breadcrumb">

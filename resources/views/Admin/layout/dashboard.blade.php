@@ -74,9 +74,9 @@
     <ul class="sidebar navbar-nav">
       @can('isAdmin')
       <li class="nav-item active">
-        <a class="nav-link" href="{{asset('/')}}">
+        <a class="nav-link" href="{{asset('/admin')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span>Area de Informacion</span>
         </a>
       </li>
       

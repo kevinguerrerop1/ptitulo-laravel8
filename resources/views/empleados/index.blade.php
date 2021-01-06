@@ -8,7 +8,7 @@
       <h2>Listado de Empleados</h2>
     </div>
     <div class="col-md-6">
-      <a href="{{url('empleados/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Ingresar Nuevo Empleado</a>
+      <a href="{{url('empleados/create')}}" class="btn btn-primary btn-lg float-md-right" role="button" aria-pressed="true">Agregar Nuevo Empleado</a>
     </div>
   </div>
 
@@ -32,6 +32,7 @@
             <tr>
             <th>Codigo</th>
             <th>Nombre</th>
+            <th>Rut</th>
             <th>Correo</th>
             <th>Acciones</th>
             </tr>
@@ -40,6 +41,7 @@
             <tr>
             <th>Codigo</th>
             <th>Nombre</th>
+            <th>Rut</th>
             <th>Correo</th>
             <th>Acciones</th>
             </tr>
@@ -48,9 +50,9 @@
             @foreach($empleados as $empleado)
             <tr>
               <td>{{$loop->iteration}}</td>
-               
-               <td>{{$empleado->name}} {{$empleado->ApellidoPaterno}} {{$empleado->ApellidoMaterno}}</td>
-                 <td>{{$empleado->email}}</td>  
+              <td>{{$empleado->name}} {{$empleado->ApellidoPaterno}} {{$empleado->ApellidoMaterno}}</td>
+              <td>{{$empleado->rut}}</td>
+              <td>{{$empleado->email}}</td>  
               <td><a href="{{url('/empleados/'.$empleado->id.'/edit')}}"><i class="fa fa-edit"></i>
               </a>     
             </td>
