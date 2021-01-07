@@ -90,7 +90,7 @@
     <div id="chart-container"></div>
     <script src="https://code.highcharts.com/highcharts.js"></script>
       <script>
-          var datas= <?php echo json_encode($datas) ?>
+          var datas = <?php echo json_encode($datas) ?>
 
           Highcharts.chart('chart-container',{
               title:{

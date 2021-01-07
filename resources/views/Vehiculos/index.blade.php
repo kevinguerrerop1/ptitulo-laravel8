@@ -55,7 +55,7 @@
             @foreach($vehiculos as $vehiculo)
               <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$vehiculo->Patente}}</td>
+                <td><span class="badge badge-info">{{$vehiculo->Patente}}</span></td>
                 <td>{{$vehiculo->Anio}}</td>
                 <td>{{$vehiculo->Marca}}</td>
                 <td>{{$vehiculo->Modelo}}</td>

@@ -41,7 +41,6 @@
             en {{$post->created_at}}</p>
         </div>
           <hr>
-          <hr>
       </div>
         @endforeach
     </div>

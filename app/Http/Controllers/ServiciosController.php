@@ -52,13 +52,24 @@ class ServiciosController extends Controller
         //Validacion de campos
         $request -> validate([
             'id_vehiculo' => 'required',
-            'tiposervicios' =>'required|max:191',
-            'descripcion' =>'required|max:191'
+            'tiposervicios' =>'required|max:191'
         ]);
 
         $servicio= new Servicios();
         $servicio->tiposervicios=$request->tiposervicios;
-        $servicio->descripcion=$request->descripcion;
+        $servicio->Caceite=$request->Caceite;
+        $servicio->Iniveles=$request->Iniveles ;
+        $servicio->Icorreas=$request->Icorreas ;
+        $servicio->Iaire=$request->Iaire ;
+        $servicio->Ifrenos=$request->Ifrenos ;
+        $servicio->Caire=$request->Caire;
+        $servicio->Cpolen=$request->Cpolen;
+        $servicio->Cbujias=$request->Cbujias;
+        $servicio->Cacc=$request->Cacc;
+        $servicio->Cad=$request->Cad;
+        $servicio->KMactual=$request->KMactual;
+        $servicio->KMproxima=$request->KMproxima;
+        
         $servicio->save();
 
         if ($request->id_vehiculo !=null) {

@@ -30,22 +30,44 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>Codigo</th>
-                <th>Patente</th>
-                <th>Tipo de Servicio</th>
-                <th>Descripcion</th>
-                <th>Fecha Mantencion</th>
-                <th>Herramientas</th>
+              <th>Codigo</th>
+              <th>Patente</th>
+              <th>Tipo de Servicio</th>
+              <th>Cambio Aceite</th>
+              <th>Inspección Niveles</th>
+              <th>Inspección Correas</th>
+              <th>Inspección Filtro Aire</th>
+              <th>Inspección Frenos</th>
+              <th>Cambio Filtro Aire</th>
+              <th>Cambio Filtro Polen</th>
+              <th>Cambio Bujias</th>
+              <th>Cambio Aceite Caja Cambio</th>
+              <th>Cambio Aceite Diferencial</th>
+              <th>KM Actual</th>
+              <th>KM Proxima Mantencion (Recomendado)</th>
+              <th>Fecha Mantencion</th>
+              <th>Herramientas</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-                <th>Codigo</th>
-                <th>Patente</th>
-                <th>Tipo se Servicio</th>
-                <th>Descripcion</th>
-                <th>Fecha Mantencion</th>
-                <th>Herramientas</th>
+              <th>Codigo</th>
+              <th>Patente</th>
+              <th>Tipo de Servicio</th>
+              <th>Cambio Aceite</th>
+              <th>Inspección Niveles</th>
+              <th>Inspección Correas</th>
+              <th>Inspección Filtro Aire</th>
+              <th>Inspección Frenos</th>
+              <th>Cambio Filtro Aire</th>
+              <th>Cambio Filtro Polen</th>
+              <th>Cambio Bujias</th>
+              <th>Cambio Aceite Caja Cambio</th>
+              <th>Cambio Aceite Diferencial</th>
+              <th>KM Actual</th>
+              <th>KM Proxima Mantencion (Recomendado)</th>
+              <th>Fecha Mantencion</th>
+              <th>Herramientas</th>
           </tfoot>
           <tbody>
             @foreach($servicios as $servicio)
@@ -57,7 +79,18 @@
                       @endforeach
                     @endif</td>
                 <td>{{$servicio->tiposervicios}}</td>
-                <td>{{$servicio->descripcion}}</td>
+                <td>{{$servicio->Caceite}}</td>
+                <td>{{$servicio->Iniveles}}</td>
+                <td>{{$servicio->Icorreas}}</td>
+                <td>{{$servicio->Iaire}}</td>
+                <td>{{$servicio->Ifrenos}}</td>
+                <td>{{$servicio->Caire}}</td>
+                <td>{{$servicio->Cpolen}}</td>
+                <td>{{$servicio->Cbujias}}</td>
+                <td>{{$servicio->Cacc}}</td>
+                <td>{{$servicio->Cad}}</td>
+                <td>{{$servicio->KMactual}}</td>
+                <td>{{$servicio->KMproxima}}</td>
                 <td>{{$servicio->created_at}}</td>
                 <td>
                   <a href="{{url('/servicios/'.$servicio->id.'/edit')}}"><i class="fa fa-edit" hidden></i></a>

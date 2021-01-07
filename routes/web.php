@@ -32,7 +32,7 @@ use App\Http\Controllers\ChartController;
 //Route::get('/',function(){return view('welcome');});
 
 //Rutas Autentificacion
-Auth::routes([ 'register' => false]);
+Auth::routes([ 'register' => false, 'reset' => false]);
 
 //Ruta Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
