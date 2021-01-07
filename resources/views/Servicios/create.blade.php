@@ -84,7 +84,7 @@
     </div>
      
     <div>
-      <h6>Cada 10.000 Kilometros</h8>
+      <h6>Cada 10.000 Kilometros</h6>
       <div class="checkbox-inline">                    
         <label>
           <input type="checkbox" name="Caceite" id="Caceite" value="Realizado"> Cambio aceite motor + filtro
@@ -103,14 +103,14 @@
           &nbsp
         </label>
         <label>
-          <input type="checkbox" name="Ifrenos" id="Ifrenos" value="Realizado"> Inspección de frenos y suspención
+          <input type="checkbox" name="Ifrenos" id="Ifrenos" value="Realizado"> Inspección de frenos y suspensión
           &nbsp
         </label>
       </div>  
     </div>  
 
     <div>
-      <h6>Cada 20.000 Kilometros</h8>
+      <h6>Cada 20.000 Kilometros</h6>
       <div class="checkbox-inline">                    
         <label>
           <input type="checkbox" name="Caire" id="Caire" value="Realizado"> Cambio filtro de aire
@@ -128,7 +128,7 @@
     </div> 
 
     <div>
-      <h6>Cada 50.000 Kilometros</h8>
+      <h6>Cada 50.000 Kilometros</h6>
       <div class="checkbox-inline">                    
         <label>
           <input type="checkbox" name="Cacc" id="Cacc" value="Realizado"> Cambio aceite caja de cambio
@@ -138,7 +138,7 @@
     </div> 
 
     <div>
-      <h6>Cada 90.000 Kilometros</h8>
+      <h6>Cada 90.000 Kilometros</h6>
       <div class="checkbox-inline">                    
         <label>
           <input type="checkbox" name="Cad" id="Cad" value="Realizado"> Cambio de aceite diferencial
@@ -153,8 +153,7 @@
     </div>
 
     <h3>Buscar Vehiculo</h3>
-
-     <div class="card mb-3">
+    <div class="card mb-3">
     <div class="card-header">
       <i class="fas fa-table"></i>
           Vehiculos
