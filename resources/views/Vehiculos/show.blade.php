@@ -20,16 +20,38 @@
                         <tr>
                             <th>Codigo</th>
                             <th>Tipo de Servicio</th>
-                            <th>Descripcion</th>
-                            <th>Fecha</th>
+                            <th>Cambio Aceite</th>
+                            <th>Inspección Niveles</th>
+                            <th>Inspección Correas</th>
+                            <th>Inspección Filtro Aire</th>
+                            <th>Inspección Frenos</th>
+                            <th>Cambio Filtro Aire</th>
+                            <th>Cambio Filtro Polen</th>
+                            <th>Cambio Bujias</th>
+                            <th>Cambio Aceite Caja Cambio</th>
+                            <th>Cambio Aceite Diferencial</th>
+                            <th>KM Actual</th>
+                            <th>KM Proxima Mantencion (Recomendado)</th>
+                            <th>Fecha Mantencion</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Codigo</th>
                             <th>Tipo de Servicio</th>
-                            <th>Descripcion</th>
-                            <th>Fecha</th>
+                            <th>Cambio Aceite</th>
+                            <th>Inspección Niveles</th>
+                            <th>Inspección Correas</th>
+                            <th>Inspección Filtro Aire</th>
+                            <th>Inspección Frenos</th>
+                            <th>Cambio Filtro Aire</th>
+                            <th>Cambio Filtro Polen</th>
+                            <th>Cambio Bujias</th>
+                            <th>Cambio Aceite Caja Cambio</th>
+                            <th>Cambio Aceite Diferencial</th>
+                            <th>KM Actual</th>
+                            <th>KM Proxima Mantencion (Recomendado)</th>
+                            <th>Fecha Mantencion</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -38,7 +60,18 @@
                                 <tr>
                                     <td>{{$servicio->id}}</td>
                                     <td>{{$servicio->tiposervicios}}</td>
-                                    <td>{{$servicio->descripcion}}</td>
+                                    <td>{{$servicio->Caceite}}</td>
+                                    <td>{{$servicio->Iniveles}}</td>
+                                    <td>{{$servicio->Icorreas}}</td>
+                                    <td>{{$servicio->Iaire}}</td>
+                                    <td>{{$servicio->Ifrenos}}</td>
+                                    <td>{{$servicio->Caire}}</td>
+                                    <td>{{$servicio->Cpolen}}</td>
+                                    <td>{{$servicio->Cbujias}}</td>
+                                    <td>{{$servicio->Cacc}}</td>
+                                    <td>{{$servicio->Cad}}</td>
+                                    <td>{{$servicio->KMactual}}</td>
+                                    <td>{{$servicio->KMproxima}}</td>
                                     <td>{{$servicio->created_at}}</td>
                                 </tr>
                             @endforeach
