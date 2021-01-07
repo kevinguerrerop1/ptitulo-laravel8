@@ -28,26 +28,55 @@ class AdministradoresController extends Controller
      */
     public function index()
     {
-        
-        $users = Servicios::select(DB::raw("COUNT(*) as count"))
-                ->whereYear('created_at',date('Y'))
+        //Conteo de Servicios
+        $caceites=Servicios::select(DB::raw("COUNT(*) as count"))->where('Caceite','=','Realizado')->get();
+
+        $resultados=[];
+        array_push($resultados,[0,$caceites[0]['count']]);
+
+        $iniveles=Servicios::select(DB::raw("COUNT(*) as count"))->where('Iniveles','=','Realizado')->get();
+        array_push($resultados,[1,$iniveles[0]['count']]);
+
+        $icorreas=Servicios::select(DB::raw("COUNT(*) as count"))->where('Icorreas','=','Realizado')->get();
+        array_push($resultados,[2,$icorreas[0]['count']]);
+
+        $iaire=Servicios::select(DB::raw("COUNT(*) as count"))->where('Iaire','=','Realizado')->get();
+        array_push($resultados,[3,$iaire[0]['count']]);
+
+        $ifrenos=Servicios::select(DB::raw("COUNT(*) as count"))->where('Ifrenos','=','Realizado')->get();
+        array_push($resultados,[4,$ifrenos[0]['count']]);
+
+        $caire=Servicios::select(DB::raw("COUNT(*) as count"))->where('Caire','=','Realizado')->get();
+        array_push($resultados,[5,$caire[0]['count']]);
+
+        $cpolen=Servicios::select(DB::raw("COUNT(*) as count"))->where('Cpolen','=','Realizado')->get();
+        array_push($resultados,[6,$cpolen[0]['count']]);
+
+        $cbujias=Servicios::select(DB::raw("COUNT(*) as count"))->where('Cbujias','=','Realizado')->get();
+        array_push($resultados,[7,$cbujias[0]['count']]);
+
+        $cacc=Servicios::select(DB::raw("COUNT(*) as count"))->where('Cacc','=','Realizado')->get();
+        array_push($resultados,[8,$cacc[0]['count']]);
+
+        $cad=Servicios::select(DB::raw("COUNT(*) as count"))->where('Cad','=','Realizado')->get();
+        array_push($resultados,[9,$cad[0]['count']]);
+       
+        //Conteo de Usuario
+        $users = User::select(DB::raw("MONTH(created_at) as mes"),DB::raw("COUNT(*) as count"))
+                ->whereYear('created_at','2021')
                 ->groupBy(DB::raw("Month(created_at)"))
-                ->pluck('count');
+                ->get();
 
-        $months = Servicios::select(DB::raw("Month(created_at) as month"))
-                ->whereYear('created_at',date('Y'))
-                ->groupBy(DB::raw("Month(created_at)"))
-                ->pluck('month');
-
-        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
-
-        foreach($months as $index => $month){
-            $datas[$month] = $users[$index];
+        $datas=[];
+                
+        foreach($users as $index => $user){
+            array_push($datas, [$user['mes'] -1, $user['count']]);
         }
 
         if (Gate::allows('isAdmin')) {
             $datos['users']=User::get();
-            return view('admin.index',$datos,compact('datas')); 
+            return view('admin.index',$datos,compact('datas','resultados'));
+
         }elseif(Gate::allows('isCliente')){
             $datosCliente['vehiculos']=DB::table('vehiculos_clientes')
             ->join('users','user_id','=','users.id')
@@ -56,6 +85,7 @@ class AdministradoresController extends Controller
             ->where('users.id','=',\Auth::user()->id)
             ->get();
             return view('vehiculos.vehiculosrole.index',$datosCliente);
+            
         }elseif(Gate::allows('isEmpleado')){
             $datosEmpleado['servicios']=Servicios::get();
             return view('servicios.index',$datosEmpleado);
