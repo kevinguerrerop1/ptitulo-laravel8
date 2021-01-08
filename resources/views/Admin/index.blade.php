@@ -87,54 +87,53 @@
     Area De Informacion</div>
     <div class="card-body">
       <canvas id="myArea" width="100%" height="30"></canvas>
-        <div id="chart-container"></div>
-          <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script>
-                var resultados = <?php echo json_encode($resultados) ?>
-
-                Highcharts.chart('chart-container',{
+      <div id="chart-container"></div>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script>
+            var resultados = <?php echo json_encode($resultados) ?>;
+            Highcharts.chart('chart-container',{
+                title:{
+                    text:'Conteo'
+                },
+                xAxis:{
+                    categories:['Cambio Aceite Motor + Filtro', 'Cambio Filtro Aire Niveles' , 'Cambio Filtro Polen' , 'Cambio Bujias', 'Cambio Aceite Caja Cambio', 'Cambio Aceite Diferencial','Inspección Niveles','Inspección Correas','Inspección Filtro Aire','Inspección Frenos/Suspensión']
+  
+                },
+                yAxis:{
                     title:{
-                        text:'Conteo'
-                    },
-                    xAxis:{
-                        categories:['Cambio Aceite Motor + Filtro', 'Cambio Filtro Aire Niveles' , 'Cambio Filtro Polen' , 'Cambio Bujias', 'Cambio Aceite Caja Cambio', 'Cambio Aceite Diferencial','Inspección Niveles','Inspección Correas','Inspección Filtro Aire','Inspección Frenos/Suspensión']
-
-                    },
-                    yAxis:{
-                        title:{
-                            text:'Numero'
-                        }
-                    },
-                    legend:{
-                        layout:'vertical',
-                        align:'right',
-                        verticalAlign:'middle'
-                    },
-                    plotOptions:{
-                        series:{
-                            allowPointSelect:true
-                        }
-                    },
-                    series:[{
-                        name:'Cantidad',
-                        data:resultados
-                    }],
-                    responsive:{
-                        rules:[{
-                            condition:{
-                                maxWidth:500
-                            },
-                            chartOptions:{
-                                legend:{
-                                    layout:'horizontal',
-                                    align:'center',
-                                    verticalAlign:'bottom'
-                                }
-                            }
-                        }]
+                        text:'Numero'
                     }
-                });
-          </script>
+                },
+                legend:{
+                    layout:'vertical',
+                    align:'right',
+                    verticalAlign:'middle'
+                },
+                plotOptions:{
+                    series:{
+                        allowPointSelect:true
+                    }
+                },
+                series:[{
+                    name:'Cantidad',
+                    data:resultados
+                }],
+                responsive:{
+                    rules:[{
+                        condition:{
+                            maxWidth:500
+                        },
+                        chartOptions:{
+                            legend:{
+                                layout:'horizontal',
+                                align:'center',
+                                verticalAlign:'bottom'
+                            }
+                        }
+                    }]
+                }
+            });
+        </script>
     </div>
 </div>
 <!-- DataTables Example -->

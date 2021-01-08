@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicios;
 use App\Models\Vehiculos;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -124,5 +125,12 @@ class ServiciosController extends Controller
     public function destroy(Servicios $servicios)
     {
         //
+    }
+    public function imprimir()
+    {
+        $datos['servicios']=Servicios::get();
+        $pdf = PDF::loadView('Pdf.reporteservicio',$datos);
+        //return $pdf->download( 'reporte_'.time().'.pdf');
+        return $pdf->setPaper('a4','landscape')->stream();
     }
 }

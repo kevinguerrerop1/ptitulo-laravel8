@@ -78,3 +78,5 @@ Route::resource('vehiculosclientes',VehiculosClientesController::class)->middlew
 
 //Ruta Charts -> Grafico
 Route::resource('chart',ChartController::class);
+
+Route::get('servicios/{servicio}/imprimir', [ServiciosController::class, 'imprimir']);
