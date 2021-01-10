@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestMail;
 use App\Models\Servicios;
 use App\Models\Vehiculos;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ServiciosController extends Controller
 {
@@ -78,6 +81,16 @@ class ServiciosController extends Controller
             $servicio->save();
         }
 
+        $vehiculo= new Vehiculos;
+
+        $detalles = [
+            'title' => 'Servicio Ingresado Correctamente',
+            'body' => 'Servicios ingresado correctamente,',$vehiculo->Patente,' para mas detalles
+            ingrese a nuestro sitio web www.Check-Ar.cl'
+        ];
+
+        Mail::to(Auth::user()->email)->send(new TestMail($detalles));
+
         return redirect('/servicios');
     }
 
@@ -129,12 +142,10 @@ class ServiciosController extends Controller
     public function imprimir($id){
         $datos['servicios']=Servicios::findOrFail($id)->get();
         $pdf = PDF::loadView('Pdf.reporteservicio',$datos);
-        return $pdf->setPaper('a4','landscape')->download( 'reporte_'.time().'.pdf');
-    }
-    public function imprimiresp(Servicios $servicio){
-        
-        $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$servicio]);
         return $pdf->setPaper('a4','landscape')->stream();
-       
     }
+    // public function imprimiresp(Servicios $servicio){
+    //     $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$servicio]);
+    //     return $pdf->setPaper('a4','landscape')->stream();
+    // }
 }
