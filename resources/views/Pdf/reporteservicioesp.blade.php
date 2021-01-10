@@ -10,17 +10,15 @@
         </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>a</title>
+    <title>Detalle Especifico</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 </head>
 <body>
    
     <main>
-        @foreach ($servicios as $servicio)
         <h5 style=""><strong>Tabla De Servicio</strong></h5>
         <h5><strong>Fecha de Ingreso {{$servicio->created_at}}</strong></h5>
-        @endforeach
         <table class="table-striped text-center">
             <thead>
             <tr>
@@ -37,7 +35,6 @@
                 <th scope="col">Cambio Bujias</th>
                 <th scope="col">Cambio Aceite Caja Cambio</th>
                 <th scope="col">Cambio Aceite Diferencial</th>
-                <th scope="col">Fecha Mantencion</th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +56,6 @@
                     <td>{{$servicio->Cbujias}}</td>
                     <td>{{$servicio->Cacc}}</td>
                     <td>{{$servicio->Cad}}</td>
-                    <td>{{$servicio->created_at}}</td>
                 </tr>
         </tbody>
     </table>

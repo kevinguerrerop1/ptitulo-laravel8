@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class ServiciosController extends Controller
@@ -73,6 +74,7 @@ class ServiciosController extends Controller
         $servicio->Cad=$request->Cad;
         $servicio->KMactual=$request->KMactual;
         $servicio->KMproxima=$request->KMproxima;
+
         
         $servicio->save();
 
@@ -81,15 +83,20 @@ class ServiciosController extends Controller
             $servicio->save();
         }
 
-        $vehiculo= new Vehiculos;
+        $datos=DB::table('vehiculos_clientes')
+        ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+        ->join('users','user_id','=','users.id')
+        ->select('users.email')
+        ->where('vehiculos.id','=',$request->id_vehiculo)
+        ->get(); 
 
         $detalles = [
             'title' => 'Servicio Ingresado Correctamente',
-            'body' => 'Servicios ingresado correctamente,',$vehiculo->Patente,' para mas detalles
+            'body' => 'Servicios ingresado correctamente para mas detalles
             ingrese a nuestro sitio web www.Check-Ar.cl'
         ];
 
-        Mail::to(Auth::user()->email)->send(new TestMail($detalles));
+        Mail::to($datos)->send(new TestMail($detalles));
 
         return redirect('/servicios');
     }
@@ -139,13 +146,15 @@ class ServiciosController extends Controller
     {
         
     }
+
     public function imprimir($id){
         $datos['servicios']=Servicios::findOrFail($id)->get();
         $pdf = PDF::loadView('Pdf.reporteservicio',$datos);
         return $pdf->setPaper('a4','landscape')->stream();
     }
-    // public function imprimiresp(Servicios $servicio){
-    //     $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$servicio]);
-    //     return $pdf->setPaper('a4','landscape')->stream();
-    // }
+    
+    public function imprimiresp(Servicios $servicio){
+        $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$servicio]);
+        return $pdf->setPaper('a4','landscape')->stream();
+    }
 }

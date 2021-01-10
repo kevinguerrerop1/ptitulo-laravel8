@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class VehiculosController extends Controller
 {
@@ -146,5 +147,10 @@ class VehiculosController extends Controller
     public function destroy($id)
     {
 
+    }
+
+    public function imprimiresp(Vehiculos $vehiculo){
+        $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$vehiculo]);
+        return $pdf->setPaper('a4','landscape')->stream();
     }
 }

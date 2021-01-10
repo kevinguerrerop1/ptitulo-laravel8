@@ -30,6 +30,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this ->subject('Notificacion ingreso de Servicio ')->view('emails.serviciosmail');
+        return $this ->subject('Notificacion ingreso de Servicio')->view('emails.serviciosmail');
     }
 }
