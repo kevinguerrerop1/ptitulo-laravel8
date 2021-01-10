@@ -124,13 +124,17 @@ class ServiciosController extends Controller
      */
     public function destroy(Servicios $servicios)
     {
-        //
+        
     }
-    public function imprimir()
-    {
-        $datos['servicios']=Servicios::get();
+    public function imprimir($id){
+        $datos['servicios']=Servicios::findOrFail($id)->get();
         $pdf = PDF::loadView('Pdf.reporteservicio',$datos);
-        //return $pdf->download( 'reporte_'.time().'.pdf');
+        return $pdf->setPaper('a4','landscape')->download( 'reporte_'.time().'.pdf');
+    }
+    public function imprimiresp(Servicios $servicio){
+        
+        $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$servicio]);
         return $pdf->setPaper('a4','landscape')->stream();
+       
     }
 }
