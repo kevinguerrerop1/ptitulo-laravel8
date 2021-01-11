@@ -62,17 +62,17 @@
 
     <div class="form-group">
       <label for="id_vehiculo">Codigo Vehiculo</label>
-      <input type="number" name="id_vehiculo" class="form-control" id="id_vehiculo" placeholder="Codigo Vehiculo" value="{{old('Patente')}}">
+      <input type="number" name="id_vehiculo" class="form-control" id="id_vehiculo" placeholder="Codigo Vehiculo" value="{{old('id_vehiculo')}}" required>
     </div>
 
     <div class="form-group">
       <label for="KMactual">Kilometraje Actual</label>
-      <input type="number" name="KMactual" class="form-control" id="KMactual" placeholder="Kilometraje Actual" value="{{old('KMactual')}}">
+      <input type="number" name="KMactual" class="form-control" id="KMactual" placeholder="Kilometraje Actual" value="{{old('KMactual')}}" required>
     </div>
 
     <div class="form-group">
       <label for="KMproxima">Kilometraje Proxima Mantencion</label>
-      <input type="number" name="KMproxima" class="form-control" id="KMproxima" placeholder="Recomendacion Cada 10.000 KM" value="{{old('KMproxima')}}">
+      <input type="number" name="KMproxima" class="form-control" id="KMproxima" placeholder="Recomendacion Cada 10.000 KM" value="{{old('KMproxima')}}" required>
     </div>
 
     <div class="form-group">
@@ -148,7 +148,7 @@
     </div> 
 
     <div class="form-group pt-2">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary" value="Ingresar">
         <a href="{{url()->previous()}}" class="btn btn-primary">Regresar</a>
     </div>
 

@@ -33,7 +33,6 @@
                             <th>KM Actual</th>
                             <th>KM Proxima Mantencion (Recomendado)</th>
                             <th>Fecha Mantencion</th>
-                            <th>Herramientas</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -53,7 +52,6 @@
                             <th>KM Actual</th>
                             <th>KM Proxima Mantencion (Recomendado)</th>
                             <th>Fecha Mantencion</th>
-                            <th>Herramientas</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -75,9 +73,6 @@
                                     <td>{{$servicio->KMactual}}</td>
                                     <td>{{$servicio->KMproxima}}</td>
                                     <td>{{$servicio->created_at}}</td>
-                                    <td>
-                                        <a href="{{url('/servicios/'.$servicio->id.'/imprimiresp')}}"><i  class="fa fa-print"></i></a>
-                                    </td>
                                 </tr>
                             @endforeach
                         @endif

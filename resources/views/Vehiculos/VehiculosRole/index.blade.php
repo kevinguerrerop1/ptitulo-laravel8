@@ -61,6 +61,7 @@
                 <td>{{$vehiculo->Color}}</td>
                 <td>
                   <a href="{{url('/vehiculos/'.$vehiculo->id.'/')}}"><i class="fa fa-eye"></i></a>
+                  <a href="{{url('/vehiculos/'.$vehiculo->id.'/imprimir')}}"><i class="fa fa-book"></i></a>
                 </td>
               </tr>
             @endforeach
