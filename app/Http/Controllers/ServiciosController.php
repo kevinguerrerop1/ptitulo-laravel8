@@ -90,12 +90,16 @@ class ServiciosController extends Controller
         ->where('vehiculos.id','=',$request->id_vehiculo)
         ->get(); 
 
-        //dd($datos);
+        $datos2=Vehiculos::select('*')
+        ->where('id','=',$request->id_vehiculo)
+        ->pluck('Patente')
+        ->first();
 
         $detalles = [
-            'title' => 'Servicio Ingresado Correctamente',
-            'body' => 'Servicio ingresado correctamente para mas detalles
-            ingrese a nuestro sitio web www.Check-Ar.cl'
+            'title' =>  'Servicio ('.$request->tiposervicios.') Ingresado Correctamente a Vehiculo Patente '.$datos2,
+            'body' =>   'Servicio '.$request->tiposervicios.' ingresado correctamente. Kilometraje de ingreso: '.$request->KMactual.' kilometros. Proxima visita
+                        recomendada a los '.$request->KMproxima.' Kilometros. Para mas detalles
+                        ingrese a nuestro sitio web www.Check-Ar.cl'
         ];
 
         Mail::to($datos)->send(new TestMail($detalles));
