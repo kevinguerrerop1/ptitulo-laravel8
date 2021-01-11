@@ -149,8 +149,8 @@ class VehiculosController extends Controller
 
     }
 
-    public function imprimiresp(Vehiculos $vehiculo){
-        $pdf = PDF::loadView('Pdf.reporteservicioesp',['servicio'=>$vehiculo]);
+    public function imprimir(Vehiculos $vehiculo){
+        $pdf = PDF::loadView('Pdf.reportevehiculo',['vehiculo'=>$vehiculo]);
         return $pdf->setPaper('a4','landscape')->stream();
     }
 }

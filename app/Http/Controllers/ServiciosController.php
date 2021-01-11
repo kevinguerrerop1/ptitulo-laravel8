@@ -90,9 +90,11 @@ class ServiciosController extends Controller
         ->where('vehiculos.id','=',$request->id_vehiculo)
         ->get(); 
 
+        //dd($datos);
+
         $detalles = [
             'title' => 'Servicio Ingresado Correctamente',
-            'body' => 'Servicios ingresado correctamente para mas detalles
+            'body' => 'Servicio ingresado correctamente para mas detalles
             ingrese a nuestro sitio web www.Check-Ar.cl'
         ];
 

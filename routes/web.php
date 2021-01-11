@@ -82,3 +82,5 @@ Route::resource('chart',ChartController::class);
 Route::get('servicios/{servicio}/imprimir', [ServiciosController::class, 'imprimir']);
 
 Route::get('servicios/{servicio}/imprimiresp', [ServiciosController::class, 'imprimiresp']);
+
+Route::get('vehiculos/{vehiculo}/imprimir', [VehiculosController::class, 'imprimir']);
