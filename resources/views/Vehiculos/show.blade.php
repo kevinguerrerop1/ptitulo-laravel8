@@ -30,7 +30,7 @@
                             <th>Cambio Bujias</th>
                             <th>Cambio Aceite Caja Cambio</th>
                             <th>Cambio Aceite Diferencial</th>
-                            <th>KM Actual</th>
+                            <th>KM Ingreso</th>
                             <th>KM Proxima Mantencion (Recomendado)</th>
                             <th>Fecha Mantencion</th>
                         </tr>
@@ -49,7 +49,7 @@
                             <th>Cambio Bujias</th>
                             <th>Cambio Aceite Caja Cambio</th>
                             <th>Cambio Aceite Diferencial</th>
-                            <th>KM Actual</th>
+                            <th>KM Ingreso</th>
                             <th>KM Proxima Mantencion (Recomendado)</th>
                             <th>Fecha Mantencion</th>
                         </tr>
