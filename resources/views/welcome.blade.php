@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>CHECK-AR</h1>
+            <h1><img src="logo/logo_welcome.png" width="200"></h1>
             <span class="subheading">Consultar tus datos nunca fue tan facil</span>
           </div>
         </div>

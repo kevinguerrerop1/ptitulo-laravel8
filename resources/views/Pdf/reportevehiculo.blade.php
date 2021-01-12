@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-        }
-        </style>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detalle Especifico</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+    <header class="clearfix">
+        <div id="logo">
+          <img src="logo/logo_pdf.png">
+        </div>
+        <h1>RESUMEN DE SERVICIOS</h1>
+    </header>
     <main>
-        <h5 style=""><strong>Tabla De Servicio</strong></h5>
         <table class="table-striped text-center">
             <thead>
                 <tr>
@@ -64,5 +65,8 @@
             </tbody>
         </table>
     </main>
+    <footer>
+      Documento no valido como boleta
+    </footer>
 </body>
 </html>
