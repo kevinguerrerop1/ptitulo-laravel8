@@ -9,7 +9,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-9 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Bienvenido Nuevamente!</h3>
+                <h3 class="login-heading mb-4">Bienvenido Nuevamente a <img src="logo/logo_login.png" width="150"></h3>
                 <form method="POST" action="{{ route('login') }}">
                       @csrf
                       <div class="form-label-group">

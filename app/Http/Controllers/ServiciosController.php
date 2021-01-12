@@ -153,8 +153,8 @@ class ServiciosController extends Controller
         
     }
 
-    public function imprimir($id){
-        $datos['servicios']=Servicios::findOrFail($id)->get();
+    public function imprimir(){
+        $datos['servicios']=Servicios::get();
         $pdf = PDF::loadView('Pdf.reporteservicio',$datos);
         return $pdf->setPaper('a4','landscape')->stream();
     }

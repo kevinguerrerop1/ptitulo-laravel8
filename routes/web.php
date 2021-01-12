@@ -84,3 +84,5 @@ Route::get('servicios/{servicio}/imprimir', [ServiciosController::class, 'imprim
 Route::get('servicios/{servicio}/imprimiresp', [ServiciosController::class, 'imprimiresp']);
 
 Route::get('vehiculos/{vehiculo}/imprimir', [VehiculosController::class, 'imprimir']);
+
+Route::get('vehiculos/{vehiculo}/descargarpdf', [VehiculosController::class, 'descargarpdf']);
