@@ -32,7 +32,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="http://localhost:82/laravel/ptitulo/public/"> <img src="logo/logo_small.png" width="140"></a>
+    <a class="navbar-brand mr-1" href="http://localhost:82/laravel/ptitulo/public/" > <img src="https://kethasoft.cl/img/logo_small.png" width="140"></a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>

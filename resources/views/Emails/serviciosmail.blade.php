@@ -8,7 +8,15 @@
 </head>
 <body>
     <h1>{{$detalles['title']}}</h1>
+    <p>{{$detalles['saludo']}}</p>
     <p>{{$detalles['body']}}</p>
-    <p>Gracias!</p>
+    <br>
+    <br>
+    <p>Muchas Gracias!</p>
+    <P>EQUIPO CHECK-AR</P>
+    <p>Telefono: 9 XXXXXXXX</p>
+    <P>Email: Check.ar.proyect@gmail.com</P>
+    <p>Curico / Maule / Chile</p>
+    
 </body>
 </html>

@@ -88,8 +88,24 @@ class ServiciosController extends Controller
         ->join('users','user_id','=','users.id')
         ->select('users.email')
         ->where('vehiculos.id','=',$request->id_vehiculo)
-        ->get(); 
+        ->get();
 
+        $nombre=DB::table('vehiculos_clientes')
+        ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+        ->join('users','user_id','=','users.id')
+        ->select('*')
+        ->where('vehiculos.id','=',$request->id_vehiculo)
+        ->pluck('name')
+        ->first(); 
+
+        $AP=DB::table('vehiculos_clientes')
+        ->join('vehiculos','vehiculos_id','=','vehiculos.id')
+        ->join('users','user_id','=','users.id')
+        ->select('*')
+        ->where('vehiculos.id','=',$request->id_vehiculo)
+        ->pluck('ApellidoPaterno')
+        ->first();
+       
         $datos2=Vehiculos::select('*')
         ->where('id','=',$request->id_vehiculo)
         ->pluck('Patente')
@@ -97,6 +113,7 @@ class ServiciosController extends Controller
 
         $detalles = [
             'title' =>  'Servicio ('.$request->tiposervicios.') Ingresado Correctamente a Vehiculo Patente '.$datos2,
+            'saludo' =>  'Estimado/a '.$nombre.' '.$AP.':',
             'body' =>   'Servicio '.$request->tiposervicios.' ingresado correctamente. Kilometraje de ingreso: '.$request->KMactual.' kilometros. Proxima visita
                         recomendada a los '.$request->KMproxima.' Kilometros. Para mas detalles
                         ingrese a nuestro sitio web www.Check-Ar.cl'
